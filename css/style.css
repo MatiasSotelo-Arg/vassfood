@@ -1,0 +1,35 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+a {
+  text-align: none; }
+
+.contenedor-header .contenedor-logo {
+  background-color: #000000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; }
+  .contenedor-header .contenedor-logo .logo {
+    width: 70vw;
+    height: 15vh;
+    padding: 1rem; }
+  .contenedor-header .contenedor-logo .carrito-iconono {
+    margin: 1rem; }
+
+.contenedor-main .contenedor-promociones .titulo-promocion {
+  text-align: center;
+  padding: 1rem; }
+
+.contenedor-main .contenedor-promociones .promo-img {
+  width: 100vw;
+  height: 40vh; }
+
+.contenedor-main .contenedor-ubicacion .titulo-ubicacion {
+  text-align: center;
+  padding: 1rem; }
+
+.contenedor-main .contenedor-ubicacion .ubicacion {
+  margin: 0 1rem;
+  height: 35vh; }

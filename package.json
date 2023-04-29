@@ -1,0 +1,17 @@
+{
+  "name": "vassfood",
+  "version": "1.0.0",
+  "description": "tienda online vassfood",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build-css": "node-sass --include-path scss scss/style.scss css/style.css",
+    "watch-css": "nodemon -e scss -x \"npm run build-css"
+  },
+  "author": "matias sotelo",
+  "license": "ISC",
+  "dependencies": {
+    "node-sass": "^8.0.0",
+    "nodemon": "^2.0.22"
+  }
+}
