@@ -24,7 +24,7 @@ a {
 
 .contenedor-main .contenedor-promociones .promo-img {
   width: 100vw;
-  height: 40vh; }
+  height: auto; }
 
 .contenedor-main .contenedor-ubicacion .titulo-ubicacion {
   text-align: center;
