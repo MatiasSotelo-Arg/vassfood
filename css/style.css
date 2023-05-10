@@ -67,7 +67,8 @@ a {
     .contenedor-main .contenedor-menu .card-menu .card-img .menu-img {
       width: 100%;
       border-radius: 50%;
-      height: 9rem; }
+      height: 9rem;
+      padding: 1rem 0; }
   .contenedor-main .contenedor-menu .card-menu .card-info {
     padding: 1rem;
     width: 70%; }
