@@ -4,7 +4,7 @@
   box-sizing: border-box; }
 
 a {
-  text-align: none; }
+  text-decoration: none; }
 
 .contenedor-header .contenedor-logo {
   background-color: #000000;
@@ -33,3 +33,43 @@ a {
 .contenedor-main .contenedor-ubicacion .ubicacion {
   margin: 0 1rem;
   height: 35vh; }
+
+.contenedor-main .contenedor-menuRubros {
+  text-align: center;
+  margin: 1rem 0; }
+  .contenedor-main .contenedor-menuRubros .categorias {
+    display: flex;
+    background-color: #262626;
+    color: white;
+    justify-content: center;
+    align-items: center; }
+    .contenedor-main .contenedor-menuRubros .categorias b {
+      font-size: 2rem; }
+  .contenedor-main .contenedor-menuRubros .card-rubro {
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center; }
+    .contenedor-main .contenedor-menuRubros .card-rubro h2 {
+      margin: 0.4rem 0;
+      padding: 0.3rem;
+      background-color: #262626;
+      width: 90%;
+      color: white;
+      border-radius: 10px; }
+
+.contenedor-main .contenedor-menu .card-menu {
+  display: flex;
+  margin: 1rem;
+  justify-content: center; }
+  .contenedor-main .contenedor-menu .card-menu .card-img {
+    width: 30%;
+    align-items: center; }
+    .contenedor-main .contenedor-menu .card-menu .card-img .menu-img {
+      width: 100%;
+      border-radius: 50%;
+      height: 9rem; }
+  .contenedor-main .contenedor-menu .card-menu .card-info {
+    padding: 1rem;
+    width: 70%; }
+    .contenedor-main .contenedor-menu .card-menu .card-info .descripcion {
+      word-wrap: break-word; }

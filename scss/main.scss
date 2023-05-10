@@ -21,4 +21,59 @@
             height: 35vh;
         }
     }
+
+    .contenedor-menuRubros {
+        text-align: center;
+        margin: 1rem 0;
+        .categorias {
+            display: flex;
+            background-color: #262626;
+            color: white;
+            justify-content: center;
+            align-items: center;
+            b {
+                font-size: 2rem;
+            }
+        }
+
+        .card-rubro {
+            text-transform: uppercase;
+            
+            display: flex;
+            justify-content: center;
+            h2 {
+                margin:0.4rem 0;
+                padding: 0.3rem;
+                background-color: #262626;
+                width: 90%;
+                color: white;
+                border-radius: 10px;
+            }
+        }
+    }
+    .contenedor-menu {
+        .card-menu {
+        display: flex;
+        margin: 1rem;
+        // align-items: center;
+        justify-content: center;
+            .card-img {
+                width: 30%;
+                align-items: center;
+                .menu-img {
+                    width: 100%;
+                    border-radius:50%;
+                    height: 9rem;
+                }
+            }
+            .card-info {
+                padding: 1rem;
+                width: 70%;
+                .descripcion {
+                    word-wrap: break-word;
+                    // overflow-x: hidden;
+                }
+            }
+        }
+    }   
 }
