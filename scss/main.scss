@@ -72,6 +72,17 @@
     }
 
     .contenedor-menu {
+        display: none;
+        position: fixed;
+        height: auto;
+        top: 0;
+        left: 0;
+        right: 0;
+        // bottom: 0;
+        background-color: white;
+        // margin: 0 0.5rem;
+        overflow-y: auto;
+        height: 100vh;
         .card-menu {
         display: flex;
         margin: 1rem;

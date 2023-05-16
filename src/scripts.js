@@ -56,43 +56,66 @@ rubrosMenu.forEach(prod => {
 
   const submitBtn = contRubros.querySelector(`#cat-${prod.id}`);
   
+  // Click rubro
   submitBtn.addEventListener('click', function() {
 
-      console.log(`click ${prod.id}`);
+      console.log(`click ${prod.nombre}`);
 
+      // muestraMenuDom
+      const contenedorCategorias = document.querySelector(".contenedor-menu");
+
+      contenedorCategorias.style.display = "block"
+
+      // agregaProductosCategoria
+      function agregarProductosCategoria () {
+
+        let codificarCategoria = rubrosMenu[prod.id].nombre;
+
+        const mostrarProductos = menu.filter(prod => prod.rubro ===  codificarCategoria)
+
+        console.log(`click ${prod.id}`)
+
+        return mostrarProductos;
+      }
+
+      const producto = agregarProductosCategoria();
+
+      // crea cabecera categoria 
+      const headerCategoDom = document.createElement("div");
+      headerCategoDom.classList.add("cont-categoria");
+      headerCategoDom.innerHTML = `
+        <h2>${prod.nombre}</h2>
+        <button class="btn-cerrar-categoria" type="button">X</button>
+      `
+      contenedorCategorias.appendChild(headerCategoDom);
+       
+      
+
+      let url = "assets//img//productos//"
+
+      producto.forEach( prod => {
+        contenedorCategorias.innerHTML += `<div class="card-menu"> 
+                                    <div class="card-img"> 
+                                      <img class="menu-img" src="${url}${prod.img}.jpg"> 
+                                    </div>
+                                    <div class="card-info"> 
+                                      <h2> ${prod.nombre}</h2>
+                                      <p class="descripcion">${prod.descripcion}<p>
+                                      <p> $${prod.precioUnidad}<p>
+                                    </div>
+                                </div>`
+      })
+
+
+      // cerrar cabecera categoria
+      const btnCerrarCatego = document.querySelector(".btn-cerrar-categoria");
+      btnCerrarCatego.addEventListener("click", function() {
+        contenedorCategorias.innerHTML = '';
+        contenedorCategorias.style.display = 'none';
+      })
     })
   contProducto.appendChild(contRubros);	
 });
 	
-			
-// const contRubros = document.querySelector(".cont-categorias");
 
-// rubrosMenu.forEach( prod => {
-//     contRubros.innerHTML += `<div class="card-rubro">                 
-//                                 <input id="cat-${prod.id}" type="submit" value="${prod.nombre}"> 
-//                             </div>`
-    
-                            
-//     const submitBtn = contRubros.querySelector(`#cat-${prod.id}`);
-//     submitBtn.addEventListener('click', function () {
-//         console.log(`Se hizo click en la categoría con id ${prod.id}`);
-//     });
-// })
-
-// muestraMenuDom
-// const rubros = document.querySelector(".contenedor-menu");
-// let url = "assets//img//productos//"
-
-// menu.forEach( prod => {
-//     rubros.innerHTML += `<div class="card-menu"> 
-//                                 <div class="card-img"> 
-//                                   <img class="menu-img" src="${url}${prod.img}.jpg"> 
-//                                 </div>
-//                                 <div class="card-info"> 
-//                                   <h2> ${prod.nombre}</h2>
-//                                   <p class="descripcion">${prod.descripcion}<p>
-//                                   <p> $${prod.precioUnidad}<p>
-//                                 </div>
-//                             </div>`
-// })
 
