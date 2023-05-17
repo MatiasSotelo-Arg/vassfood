@@ -272,7 +272,11 @@ rubrosMenu.forEach(prod => {
             if (checkboxUnidad.checked) {
               console.log('Se hizo clic en el checkbox de la unidad');
               // Asigna el nombre y precio correspondientes
-              nombre = `${prod.rubro} ${prod.nombre} (Unidad)`;
+              if (prod.rubro === "empanadas") {
+                nombre = `${prod.rubro} ${prod.nombre} (Docena)`;
+              } else {
+                nombre = `${prod.rubro} ${prod.nombre} (Entera)`;
+              }
               precio = `${prod.precioUnidad}`;
               checkboxMedia.checked = false; // Desmarca el checkbox de la media
             }
@@ -291,6 +295,7 @@ rubrosMenu.forEach(prod => {
             }
           });
         }
+        
         
         btnCarrito.addEventListener("click", function() {
           let cantidad = 1;
