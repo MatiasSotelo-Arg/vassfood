@@ -30,6 +30,8 @@ bannerPromocion();
 // capturarRubros
 const rubrosMenu = [];
 
+const pedido = [];
+
 let id = 0; 
 
 menu.forEach(prod => {
@@ -71,14 +73,21 @@ rubrosMenu.forEach(prod => {
 
         let codificarCategoria = rubrosMenu[prod.id].nombre;
 
-        const mostrarProductos = menu.filter(prod => prod.rubro ===  codificarCategoria)
+        // const mostrarProductos = menu.filter(prod => prod.rubro ===  codificarCategoria)
 
-        console.log(`click ${prod.id}`)
+        const mostrarProductos = menu.filter(prod => prod.rubro === codificarCategoria).map((producto, index) => {
+          producto.id = index + 1; // Asignar un ID único a cada producto
+          return producto;
+        });
+
+        console.log(`click ${prod.id}`);
 
         return mostrarProductos;
       }
 
       const producto = agregarProductosCategoria();
+
+      console.log(producto)
 
       // crea cabecera categoria 
       const headerCategoDom = document.createElement("div");
@@ -92,7 +101,7 @@ rubrosMenu.forEach(prod => {
       
 
       let url = "assets//img//productos//"
-
+  
       producto.forEach( prod => {
         contenedorCategorias.innerHTML += `<div class="card-menu"> 
                                     <div class="card-img"> 
@@ -101,11 +110,37 @@ rubrosMenu.forEach(prod => {
                                     <div class="card-info"> 
                                       <h2> ${prod.nombre}</h2>
                                       <p class="descripcion">${prod.descripcion}<p>
-                                      <p> $${prod.precioUnidad}<p>
+                                      <div class="cont-btn"> 
+                                        <p> $${prod.precioUnidad}</p>
+                                        <input id="carrito-${prod.id}" type="submit" value="Agregar">
+                                      </div>
                                     </div>
-                                </div>`
-      })
+                                </div>`    
 
+      })              
+
+      contenedorCategorias.addEventListener('click', function(event) {
+        const target = event.target;
+        
+        if (target.matches('input[type="submit"]')) {
+          // El evento corresponde a un botón de agregar
+          const id = target.id.split('-')[1]; // Obtener el ID del producto
+
+          // Realizar las acciones necesarias
+          // console.log((id - 1))
+
+          pedido.push(producto[(id-1)])
+
+          // console.log(pedido)
+        }
+
+        const contador = document.querySelector("#contador");
+        contador.textContent++;
+        contador.style.display = "inline";
+
+      });
+             
+      
 
       // cerrar cabecera categoria
       const btnCerrarCatego = document.querySelector(".btn-cerrar-categoria");
@@ -115,7 +150,15 @@ rubrosMenu.forEach(prod => {
       })
     })
   contProducto.appendChild(contRubros);	
+
 });
-	
+
+// mostrarPedidoEnDom
+const contPedido = document.querySelector(".contenedor-pedido");
+
+
+
+
+
 
 

@@ -32,6 +32,8 @@
             justify-content: center;
             align-items: center;
             b {
+                text-transform: uppercase;
+                padding: 1rem;
                 font-size: 2rem;
             }
         }
@@ -50,7 +52,7 @@
             // box-shadow: 10px 10px 5px -3px rgba(0,0,0,0.11);
             img {
                 width: 100%;
-                height: AUTO;
+                height: auto;
                 // border-radius: 50%;
                 padding: 0 0 1rem 0;
             }
@@ -63,6 +65,7 @@
                 color: white;
                 font-weight: bold;
                 text-transform: uppercase;
+                font-size: 1.3rem;
             }
         }
         .card-rubro:last-child {
@@ -78,15 +81,29 @@
         top: 0;
         left: 0;
         right: 0;
-        // bottom: 0;
         background-color: white;
-        // margin: 0 0.5rem;
         overflow-y: auto;
         height: 100vh;
+
+        .cont-categoria {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            background-color: #262626;
+            color: white;
+            text-transform: uppercase;
+            button {
+                background-color: transparent;
+                border: none;
+                color: white;
+                font-size: 1.2rem;
+            }
+        }
+
         .card-menu {
         display: flex;
         margin: 1rem;
-        // align-items: center;
         justify-content: center;
             .card-img {
                 width: 30%;
@@ -108,4 +125,27 @@
             }
         }
     }   
+    .contenedor-logo-pedido {
+        width: 3.5rem;
+        height: 3.5rem;
+        background-color: #fc8c03;
+        border-radius: 50%;
+        padding: 0.5rem;
+        position: fixed;
+        right: 1.5rem;
+        bottom: 1.5rem;
+        .logo-pedido {
+            color: white;
+        }
+        #contador {
+            display: none;
+            position: absolute;
+            top: 0;
+            background-color: #262626;
+            padding: 3px;
+            color: white;
+            font-weight: bold;
+            border-radius: 50%;
+        }
+    }
 }
