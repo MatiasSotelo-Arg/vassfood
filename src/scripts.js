@@ -132,12 +132,13 @@ rubrosMenu.forEach(prod => {
           pedido.push(producto[(id-1)])
 
           // console.log(pedido)
+          const contador = document.querySelector("#contador");
+          contador.textContent++;
+          contador.style.display = "inline";
+
+          console.log(pedido);
+
         }
-
-        const contador = document.querySelector("#contador");
-        contador.textContent++;
-        contador.style.display = "inline";
-
       });
              
       
@@ -154,7 +155,40 @@ rubrosMenu.forEach(prod => {
 });
 
 // mostrarPedidoEnDom
-const contPedido = document.querySelector(".contenedor-pedido");
+const contPedido = document.querySelector(".logo-pedido");
+const contenedorPedido = document.querySelector(".contenedor-pedido");
+
+contPedido.addEventListener("click", function(){
+  contenedorPedido.style.display = "block";
+
+  // crea cabecera categoria 
+  const headerCategoDom = document.createElement("div");
+  headerCategoDom.classList.add("cont-pedido");
+  headerCategoDom.innerHTML = `
+    <h2>Pedido</h2>
+    <button class="btn-cerrar-menu" type="button">X</button>
+  `
+  
+  contenedorPedido.appendChild(headerCategoDom);
+
+  // pedido.forEach( prod => {
+  //   contenedorPedido.innerHTML = `asd`
+  //   contenedorPedido.appendChild()
+  // })
+
+  const btnCerrar = document.querySelector(".btn-cerrar-menu");
+
+  btnCerrar.addEventListener("click", function(){
+    contenedorPedido.innerHTML = '';
+    contenedorPedido.style.display = "none"
+  })
+
+})
+
+
+
+
+
 
 
 
