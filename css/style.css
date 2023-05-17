@@ -113,6 +113,8 @@ a {
       width: 70%; }
       .contenedor-main .contenedor-menu .card-menu .card-info .descripcion {
         word-wrap: break-word; }
+  .contenedor-main .contenedor-menu .card-info .cont-btn div {
+    display: flex; }
 
 .contenedor-main .contenedor-logo-pedido {
   width: 3.5rem;
@@ -158,3 +160,6 @@ a {
   border: none;
   color: white;
   font-size: 1.2rem; }
+
+.contenedor-main .card-pedido img {
+  width: 100%; }

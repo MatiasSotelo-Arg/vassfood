@@ -1,0 +1,37 @@
+     // const btnCarrito = cardMenu.querySelector(`#carrito-${prod.id}`);
+                                // btnCarrito.addEventListener("click", function() {
+
+                                //   const checkboxUnidad = document.getElementById('precioUnidad');
+                                //   const checkboxMedia = document.getElementById('precioMedia');
+
+                                //   // Agrega un event listener para detectar el clic en el checkbox de la unidad
+                                //   checkboxUnidad.addEventListener('click', function() {
+                                //     if (checkboxUnidad.checked) {
+                                //       console.log('Se hizo clic en el checkbox de la unidad');
+                                //       // Aquí puedes agregar el código que deseas ejecutar cuando se hace clic en el checkbox de la unidad
+                                //       let nombre = `${prod.rubro} ${prod.nombre} (Unidad)`
+                                //       let precio = `${prod.precioUnidad}`
+                                //       return nombre,precio;
+                                //     }
+                                //   });
+
+                                //   // Agrega un event listener para detectar el clic en el checkbox de la media
+                                //   checkboxMedia.addEventListener('click', function() {
+                                //     if (checkboxMedia.checked) {
+                                //       console.log('Se hizo clic en el checkbox de la media');
+                                //       // Aquí puedes agregar el código que deseas ejecutar cuando se hace clic en el checkbox de la media
+                                //       let nombre = `${prod.rubro} ${prod.nombre} (Media)`
+                                //       let precio = `${prod.precioUnidad}`
+                                //       return nombre,precio;
+                                //     }
+                                    
+                                //   });
+
+                                //   let cantidad = 1;
+
+
+
+                                //   pedido.push({ nombre: nombre, precio: precio, cantidad: cantidad })
+
+                                //   console.log(pedido)
+                                // })
