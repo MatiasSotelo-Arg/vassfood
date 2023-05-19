@@ -375,39 +375,54 @@ contPedido.addEventListener("click", function(){
   contenedorPedido.appendChild(headerCategoDom);
 
   // Mostrar pedido en carrito
-  pedido.forEach( prod => {
+  pedido.forEach(prod => {
 
     const cardPedido = document.createElement("div");
-    cardPedido.classList.add("card-pedido");
-
-    // img:
-    // rubro: 
-    // nombre: 
-    // descripcion: 
-    // precioUnidad:
-    // precioMedia:
-
-    // if(prod.precioU === undefined ) {
-    //   let precios = `
-    //   <input type="checkbox" value="figazzas lomo"> <p>$${prod.precioM}</>
-    //   <p>$${prod.precioU}</>
-    //   `
-    // } 
-    
+    cardPedido.classList.add("card-pedido", prod.id);
+  
     cardPedido.innerHTML = `
-                          
-                            <h2>${prod.nombre}</h2>
-                            
-                            <p>$${prod.precio}</>
-                            
-
-      
-      `
-    
+      <h2>${prod.nombre}</h2>
+      <strong>$${prod.precio}</strong>
+      <input id=${prod.id} type="submit" value="X">
+    `;
+  
+    const btnSacarPedido = cardPedido.querySelector(`#${prod.id}`);
+  
+    btnSacarPedido.addEventListener('click', function() {
+      const indice = pedido.findIndex(elemento => elemento.id === prod.id);
+      if (indice !== -1) {
+        pedido.splice(indice, 1);
+        console.log(`Elemento con ID ${prod.id} eliminado del pedido.`);
+  
+        // Eliminar el elemento del DOM
+        const elementoEliminar = document.querySelector(`.${prod.id}`);
+        if (elementoEliminar) {
+          elementoEliminar.remove();
+  
+          // Recalcular el precio total
+          let precioTotal = pedido.reduce((total, producto) => total + Number(producto.precio), 0);
+  
+          // Actualizar el elemento del DOM que muestra el total
+          totalCarrito.innerHTML = `Total: $${precioTotal}`;
+        }
+      }
+    });
+  
     contenedorPedido.appendChild(cardPedido);
-    console.log("hola?")
-  })
+  });
+  
+  // calcular totalCarrito;
+  
+  let precioTotal = pedido.reduce((total, producto) => total + Number(producto.precio), 0);
+  
+  const totalCarrito = document.createElement("strong");
+  
+  totalCarrito.innerHTML = `Total: $${precioTotal}`;
+  contenedorPedido.appendChild(totalCarrito);
+  
 
+
+  // btnCerrar
   const btnCerrar = document.querySelector(".btn-cerrar-menu");
 
   btnCerrar.addEventListener("click", function(){
