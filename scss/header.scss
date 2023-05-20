@@ -2,15 +2,12 @@
     .contenedor-logo {
         background-color: #000000;
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
         align-items: center;
         .logo {
-            width: 70vw;
+            width: 100vw;
             height: 15vh;
             padding: 1rem;
-        }
-        .carrito-iconono {
-            margin: 1rem;
         }
     }
 }

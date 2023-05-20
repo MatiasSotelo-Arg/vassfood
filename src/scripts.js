@@ -388,6 +388,7 @@ contPedido.addEventListener("click", function(){
   
     const btnSacarPedido = cardPedido.querySelector(`#${prod.id}`);
   
+    // btn cerrar
     btnSacarPedido.addEventListener('click', function() {
       const indice = pedido.findIndex(elemento => elemento.id === prod.id);
       if (indice !== -1) {
@@ -412,14 +413,96 @@ contPedido.addEventListener("click", function(){
   });
   
   // calcular totalCarrito;
-  
   let precioTotal = pedido.reduce((total, producto) => total + Number(producto.precio), 0);
   
   const totalCarrito = document.createElement("strong");
   
   totalCarrito.innerHTML = `Total: $${precioTotal}`;
   contenedorPedido.appendChild(totalCarrito);
+
+  const infoPedido = document.createElement("div");
+  infoPedido.classList.add("informacion-pedido")
+
+  infoPedido.innerHTML = `
+                            <div> 
+                              <input type="checkbox" id="delivery" value="delivery"> 
+                              <p>Delivery</p>
+                            </div>
+
+                            <div> 
+                              <input type="checkbox" id="retiro_local" value="retiro_local">
+                              <p>Retiro en Local</p>
+                            </div>   
+
+                        `
   
+  contenedorPedido.appendChild(infoPedido);
+
+  const checkboxDelivery = document.getElementById("delivery");
+  const checkboxRetiroLocal = document.getElementById("retiro_local");
+  const contDelivery = document.createElement("div");
+  contDelivery.classList.add("cont-delivery");
+
+  const btnConfirmar = document.createElement("input");
+  btnConfirmar.type = "submit";
+  btnConfirmar.value = "confimar";
+
+  // activar contenedor delivery
+  if (checkboxDelivery) {
+    checkboxDelivery.addEventListener('change', function() {
+      if (checkboxDelivery.checked) {
+        contDelivery.innerHTML = `
+
+          <div> 
+            <label for="nombre">Nombre</label>
+            <input type="text" name="nombre" id="nombre"  required="required">
+          </div>
+          
+          <div>   
+            <label for="tel">Telefono</label>
+            <input type="text" name="tel" id="tel" required="required">
+          </div> 
+
+          <div>   
+            <label for="direccion">Dirección</label>
+            <input type="text" name="direccion" id="direccion" required="required">
+          </div> 
+          
+          <div>   
+            <label for="calles">Entre Calles</label>
+            <input type="calles" name="calles" id="calles" required="required">
+          </div> 
+
+          <div> 
+            <p>Algún comentario?</p>
+            <textarea name="textarea">Ejemplo: Sin cebolla, abono justo, etc...</textarea>
+          </div>
+
+        `;
+
+        btnConfirmar.remove();
+      
+        contenedorPedido.appendChild(contDelivery);
+        contenedorPedido.appendChild(btnConfirmar);
+        
+        checkboxRetiroLocal.checked = false; // Desmarcar checkbox de retiro local
+      } else {
+        contDelivery.remove();
+      }
+    });
+
+    contenedorPedido.appendChild(btnConfirmar)
+  }
+
+  // desactivar contenedor delivery si se selecciona retiro local
+  if (checkboxRetiroLocal) {
+    checkboxRetiroLocal.addEventListener('change', function() {
+      if (checkboxRetiroLocal.checked) {
+        checkboxDelivery.checked = false; // Desmarcar checkbox de entrega
+        contDelivery.remove();
+      }
+    });
+  }
 
 
   // btnCerrar

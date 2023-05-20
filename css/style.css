@@ -9,22 +9,18 @@ a {
 .contenedor-header .contenedor-logo {
   background-color: #000000;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center; }
   .contenedor-header .contenedor-logo .logo {
-    width: 70vw;
+    width: 100vw;
     height: 15vh;
     padding: 1rem; }
-  .contenedor-header .contenedor-logo .carrito-iconono {
-    margin: 1rem; }
 
-.contenedor-main .contenedor-promociones .titulo-promocion {
-  text-align: center;
-  padding: 1rem; }
-
-.contenedor-main .contenedor-promociones .promo-img {
-  width: 100vw;
-  height: auto; }
+.contenedor-main .contenedor-promociones {
+  margin: 1rem 0; }
+  .contenedor-main .contenedor-promociones .promo-img {
+    width: 100vw;
+    height: auto; }
 
 .contenedor-main .contenedor-ubicacion .titulo-ubicacion {
   text-align: center;
@@ -35,8 +31,7 @@ a {
   height: 35vh; }
 
 .contenedor-main .contenedor-menuCategorias {
-  text-align: center;
-  margin: 1rem 0; }
+  text-align: center; }
   .contenedor-main .contenedor-menuCategorias .categorias {
     display: flex;
     background-color: #262626;
