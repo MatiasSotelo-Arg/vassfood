@@ -296,7 +296,7 @@ rubrosMenu.forEach(prod => {
           });
         }
         
-        
+        // Agrega el producto al carrito
         btnCarrito.addEventListener("click", function() {
           let cantidad = 1;
           if (nombre && precio) {
@@ -314,6 +314,11 @@ rubrosMenu.forEach(prod => {
             nombre = undefined; // Reinicia el valor de nombre
             precio = undefined; // Reinicia el valor de precio
           }
+
+          const contador = document.querySelector("#contador");
+          contador.textContent = "✓";
+          contador.style.display = "inline";
+
         });
                         
 
@@ -410,6 +415,7 @@ contPedido.addEventListener("click", function(){
     });
   
     contenedorPedido.appendChild(cardPedido);
+
   });
   
   // calcular totalCarrito;
@@ -424,6 +430,10 @@ contPedido.addEventListener("click", function(){
   infoPedido.classList.add("informacion-pedido")
 
   infoPedido.innerHTML = `
+
+                          <p class="alerta"></p>
+
+                          <div>
                             <div> 
                               <input type="checkbox" id="delivery" value="delivery"> 
                               <p>Delivery</p>
@@ -433,6 +443,7 @@ contPedido.addEventListener("click", function(){
                               <input type="checkbox" id="retiro_local" value="retiro_local">
                               <p>Retiro en Local</p>
                             </div>   
+                          </div>
 
                         `
   
@@ -446,6 +457,8 @@ contPedido.addEventListener("click", function(){
   const btnConfirmar = document.createElement("input");
   btnConfirmar.type = "submit";
   btnConfirmar.value = "confimar";
+  btnConfirmar.id = "btn-confirmar-pedido"
+  
 
   // activar contenedor delivery
   if (checkboxDelivery) {
@@ -475,17 +488,24 @@ contPedido.addEventListener("click", function(){
 
           <div> 
             <p>Algún comentario?</p>
-            <textarea name="textarea">Ejemplo: Sin cebolla, abono justo, etc...</textarea>
+            <textarea name="textarea" placeholder="Ejemplo: Sin cebolla, abono justo, etc..."></textarea>
           </div>
 
         `;
 
+        const alerta = document.querySelector(".alerta");
+
+        alerta.innerHTML = ""
+
         btnConfirmar.remove();
       
         contenedorPedido.appendChild(contDelivery);
+
         contenedorPedido.appendChild(btnConfirmar);
+
         
         checkboxRetiroLocal.checked = false; // Desmarcar checkbox de retiro local
+
       } else {
         contDelivery.remove();
       }
@@ -500,6 +520,10 @@ contPedido.addEventListener("click", function(){
       if (checkboxRetiroLocal.checked) {
         checkboxDelivery.checked = false; // Desmarcar checkbox de entrega
         contDelivery.remove();
+
+        const alerta = document.querySelector(".alerta");
+
+        alerta.innerHTML = ""
       }
     });
   }
@@ -513,9 +537,40 @@ contPedido.addEventListener("click", function(){
     contenedorPedido.style.display = "none"
   })
 
+  // valdiar checkbox delivery/retira
+  btnConfirmar.addEventListener('click', function() {
+
+    const alerta = document.querySelector(".alerta");
+
+    alerta.innerHTML = ""
+
+    if(!checkboxDelivery.checked && !checkboxRetiroLocal.checked) {
+      
+      alerta.innerHTML = "Seleccione una opción!"
+
+    } 
+
+    console.log("Hola?")
+
+    // generarMensajePedido
+    let textoPedido;
+
+    pedido.forEach( prod =>  {
+      textoPedido += `
+        ${prod.nombre} ${prod.precio}
+      `
+
+    })
+    console.log(textoPedido);
+  
+  })
+
 })
 
-  
+
+
+
+
 
 
 

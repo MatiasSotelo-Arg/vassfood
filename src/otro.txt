@@ -1,37 +1,34 @@
-     // const btnCarrito = cardMenu.querySelector(`#carrito-${prod.id}`);
-                                // btnCarrito.addEventListener("click", function() {
+function confirmarPedido() {
+  const btnCerrarPedido = document.getElementById("btn-confirmar-pedido");
 
-                                //   const checkboxUnidad = document.getElementById('precioUnidad');
-                                //   const checkboxMedia = document.getElementById('precioMedia');
+  btnCerrarPedido.addEventListener("click", function() {
+    const nombreValido = validateAndSetPlaceholder("nombre");
+    const telValido = validateAndSetPlaceholder("tel");
+    const direccionValida = validateAndSetPlaceholder("direccion");
+    const callesValidas = validateAndSetPlaceholder("calles");
 
-                                //   // Agrega un event listener para detectar el clic en el checkbox de la unidad
-                                //   checkboxUnidad.addEventListener('click', function() {
-                                //     if (checkboxUnidad.checked) {
-                                //       console.log('Se hizo clic en el checkbox de la unidad');
-                                //       // Aquí puedes agregar el código que deseas ejecutar cuando se hace clic en el checkbox de la unidad
-                                //       let nombre = `${prod.rubro} ${prod.nombre} (Unidad)`
-                                //       let precio = `${prod.precioUnidad}`
-                                //       return nombre,precio;
-                                //     }
-                                //   });
+    if (nombreValido && telValido && direccionValida && callesValidas) {
+      enviarPedido();
+    }
+  });
 
-                                //   // Agrega un event listener para detectar el clic en el checkbox de la media
-                                //   checkboxMedia.addEventListener('click', function() {
-                                //     if (checkboxMedia.checked) {
-                                //       console.log('Se hizo clic en el checkbox de la media');
-                                //       // Aquí puedes agregar el código que deseas ejecutar cuando se hace clic en el checkbox de la media
-                                //       let nombre = `${prod.rubro} ${prod.nombre} (Media)`
-                                //       let precio = `${prod.precioUnidad}`
-                                //       return nombre,precio;
-                                //     }
-                                    
-                                //   });
+  function validateAndSetPlaceholder(elementId) {
+    const element = document.getElementById(elementId);
+    let isValid = true;
 
-                                //   let cantidad = 1;
+    if (element.value === "") {
+      element.placeholder = "¡Complete el campo!";
+      isValid = false;
+    }
 
+    return isValid;
+  }
 
+  
+}
+   
+function enviarPedido() {
 
-                                //   pedido.push({ nombre: nombre, precio: precio, cantidad: cantidad })
+  alert("¡Pedido confirmado!");
 
-                                //   console.log(pedido)
-                                // })
+}
