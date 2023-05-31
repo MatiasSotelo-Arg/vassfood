@@ -165,100 +165,10 @@ rubrosMenu.forEach(prod => {
                                     </div>
                                 `   
                               
-                                contenedorCategorias.appendChild(cardMenu)
-
-                           
-                                // const btnCarrito = cardMenu.querySelector(`#carrito-${prod.id}`);
-                                // const checkboxUnidad = document.getElementById('precioUnidad');
-                                // const checkboxMedia = document.getElementById('precioMedia');
-                                
-                                // let nombre;
-                                // let precio;
-                                
-                                // // Agrega un event listener para detectar el clic en el checkbox de la unidad
-                                // checkboxUnidad.addEventListener('click', function() {
-                                //   if (checkboxUnidad.checked) {
-                                //     console.log('Se hizo clic en el checkbox de la unidad');
-                                //     // Asigna el nombre y precio correspondientes
-                                //     nombre = `${prod.rubro} ${prod.nombre} (Unidad)`;
-                                //     precio = `${prod.precioUnidad}`;
-                                //     checkboxMedia.checked = false; // Desmarca el checkbox de la media
-                                //   }
-                                // });
-                                
-                                // // Agrega un event listener para detectar el clic en el checkbox de la media
-                                // checkboxMedia.addEventListener('click', function() {
-                                //   if (checkboxMedia.checked) {
-                                //     console.log('Se hizo clic en el checkbox de la media');
-                                //     // Asigna el nombre y precio correspondientes
-                                //     nombre = `${prod.rubro} ${prod.nombre} (Media)`;
-                                //     precio = `${prod.precioMedia}`;
-                                //     checkboxUnidad.checked = false; // Desmarca el checkbox de la unidad
-                                //   }
-                                // });
-                                
-                                // btnCarrito.addEventListener("click", function() {
-                                //   if (nombre !== undefined && precio !== undefined) {
-                                //     let cantidad = 1;
-                                //     pedido.push({ nombre: nombre, precio: precio, cantidad: cantidad });
-                                //     console.log(pedido);
-                                //     nombre = undefined; // Reinicia el valor de nombre
-                                //     precio = undefined; // Reinicia el valor de precio
-                                //     checkboxUnidad.checked = false; // Desmarca el checkbox de la unidad
-                                //     checkboxMedia.checked = false; // Desmarca el checkbox de la media
-                                //   } else {
-                                //     console.log('No se ha seleccionado ninguna opción');
-                                //   }
-                                // });
+                                contenedorCategorias.appendChild(cardMenu);
 
                                 const btnCarrito = cardMenu.querySelector(`#carrito-${prod.id}`);
         
-        // const checkboxUnidad = document.getElementById('precioUnidad');
-        // const checkboxMedia = document.getElementById('precioMedia');
-
-        // let nombre;
-        // let precio;
-
-        // // Agrega un event listener para detectar el clic en el checkbox de la unidad
-        // checkboxUnidad.addEventListener('click', function() {
-        //   if (checkboxUnidad.checked) {
-        //     console.log('Se hizo clic en el checkbox de la unidad');
-        //     // Asigna el nombre y precio correspondientes
-        //     nombre = `${prod.rubro} ${prod.nombre} (Unidad)`;
-        //     precio = `${prod.precioUnidad}`;
-        //     checkboxMedia.checked = false; // Desmarca el checkbox de la media
-        //   }
-        // });
-
-        // // Agrega un event listener para detectar el clic en el checkbox de la media
-        // checkboxMedia.addEventListener('click', function() {
-        //   if (checkboxMedia.checked) {
-        //     console.log('Se hizo clic en el checkbox de la media');
-        //     // Asigna el nombre y precio correspondientes
-        //     nombre = `${prod.rubro} ${prod.nombre} (Media)`;
-        //     precio = `${prod.precioMedia}`;
-        //     checkboxUnidad.checked = false; // Desmarca el checkbox de la unidad
-        //   }
-        // });
-
-        // btnCarrito.addEventListener("click", function() {
-        //   let cantidad = 1;
-        //   if (nombre && precio) {
-        //     pedido.push({ nombre: nombre, precio: precio, cantidad: cantidad });
-        //     console.log(pedido);
-        //     nombre = undefined; // Reinicia el valor de nombre
-        //     precio = undefined; // Reinicia el valor de precio
-        //     checkboxUnidad.checked = false; // Desmarca el checkbox de la unidad
-        //     checkboxMedia.checked = false; // Desmarca el checkbox de la media
-        //   } else {
-        //     nombre = `${prod.rubro} ${prod.nombre}`;
-        //     precio = `${prod.precioUnidad}`;
-        //     pedido.push({ nombre: nombre, precio: precio, cantidad: cantidad });
-        //     console.log(pedido);
-        //     nombre = undefined; // Reinicia el valor de nombre
-        //     precio = undefined; // Reinicia el valor de precio
-        //   }
-        // });
 
         const checkboxUnidad = document.getElementById('precioUnidad');
         const checkboxMedia = document.getElementById('precioMedia');
@@ -488,7 +398,7 @@ contPedido.addEventListener("click", function(){
 
           <div> 
             <p>Algún comentario?</p>
-            <textarea name="textarea" placeholder="Ejemplo: Sin cebolla, abono justo, etc..."></textarea>
+            <textarea name="textarea" id="textarea" placeholder="Ejemplo: Sin cebolla, abono justo, etc..."></textarea>
           </div>
 
         `;
@@ -550,22 +460,67 @@ contPedido.addEventListener("click", function(){
 
     } 
 
-    console.log("Hola?")
 
+    if(checkboxDelivery.checked) {
+      const campos = [
+        { input: document.querySelector("#nombre"), validar: valor => valor.length > 0 },
+        { input: document.querySelector("#tel"), validar: valor => valor.length > 0 },
+        { input: document.querySelector("#direccion"), validar: valor => valor.length > 0 },
+        { input: document.querySelector("#calles"), validar: valor => valor.length > 0 }
+      ];
+      
+      let alertaMostrada = false
+
+      campos.forEach(campo => {
+        if (!campo.validar(campo.input.value)) {
+          campo.input.classList.add("campo-invalido");
+          if (!alertaMostrada) {
+            alert("Complete todos los campos");
+            alertaMostrada = true; 
+          }
+        } else {
+          campo.input.classList.remove("campo-invalido");
+        }
+      });
+
+      const nombreInput = document.querySelector("#nombre");
+      const telInput = document.querySelector("#tel");
+      const direccionInput = document.querySelector("#direccion");
+      const callesInput = document.querySelector("#calles");
+      const textareaInput = document.querySelector("#textarea");
+
+      const nombre = nombreInput.value;
+      const telefono = telInput.value;
+      const direccion = direccionInput.value;
+      const calles = callesInput.value; 
+      const textarea = textareaInput.value; 
+
+    } 
+  
     // generarMensajePedido
-    let textoPedido;
+    let textoPedido = "Mi pedido:%0A";
 
     pedido.forEach( prod =>  {
-      textoPedido += `
-        ${prod.nombre} ${prod.precio}
-      `
-
+      textoPedido += `- ${prod.cantidad} x $${prod.nombre} ${prod.precio}%0A`
     })
-    console.log(textoPedido);
-  
+
+    
+    textoPedido+= `${precioTotal}`
+
+    const apiUrl = `https://web.whatsapp.com/send?phone=+5493794801475&text=${textoPedido}`;
+    
+    window.open(apiUrl);
+
+    console.log(textoPedido)
   })
 
 })
+
+
+
+
+
+
 
 
 

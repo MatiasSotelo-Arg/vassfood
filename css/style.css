@@ -158,3 +158,6 @@ a {
 
 .contenedor-main .card-pedido img {
   width: 100%; }
+
+.campo-invalido {
+  border: 2px solid red; }
