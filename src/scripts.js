@@ -130,12 +130,12 @@ rubrosMenu.forEach(prod => {
             let opcion = `<div> 
                             <p>Docena</p>
                             <input type="checkbox" id="precioUnidad" value="first_checkbox">
-                            <p>$${p.precioUnidad}</p> 
+                            <p> $${p.precioUnidad}</p> 
                           </div>
                           <div> 
                             <p>Media</p>
                             <input type="checkbox" id="precioMedia" value="first_checkbox">
-                            <p>$${p.precioMedia}</p> 
+                            <p> $${p.precioMedia}</p> 
                           </div>
                           `
 
@@ -160,7 +160,7 @@ rubrosMenu.forEach(prod => {
                                       <p class="descripcion">${prod.descripcion}<p>
                                       <div class="cont-btn"> 
                                         <p> ${opciones}</p>
-                                        <input id="carrito-${prod.id}" type="submit" value="Agregar">
+                                        <input id="carrito-${prod.id}" class="card-btn" type="submit" value="Agregar">
                                       </div>
                                     </div>
                                 `   
@@ -296,9 +296,11 @@ contPedido.addEventListener("click", function(){
     cardPedido.classList.add("card-pedido", prod.id);
   
     cardPedido.innerHTML = `
-      <h2>${prod.nombre}</h2>
-      <strong>$${prod.precio}</strong>
-      <input id=${prod.id} type="submit" value="X">
+      <div>
+        <h2>${prod.nombre}</h2>
+        <strong>$${prod.precio}</strong>
+      </div>
+      <input id=${prod.id} type="submit" value="X" class="btnXPedido">
     `;
   
     const btnSacarPedido = cardPedido.querySelector(`#${prod.id}`);
@@ -332,6 +334,7 @@ contPedido.addEventListener("click", function(){
   let precioTotal = pedido.reduce((total, producto) => total + Number(producto.precio), 0);
   
   const totalCarrito = document.createElement("strong");
+  totalCarrito.classList.add("totalPedido")
   
   totalCarrito.innerHTML = `Total: $${precioTotal}`;
   contenedorPedido.appendChild(totalCarrito);
@@ -343,13 +346,13 @@ contPedido.addEventListener("click", function(){
 
                           <p class="alerta"></p>
 
-                          <div>
-                            <div> 
+                          <div class="cont-checkbox">
+                            <div class="checkDelivery"> 
                               <input type="checkbox" id="delivery" value="delivery"> 
                               <p>Delivery</p>
                             </div>
 
-                            <div> 
+                            <div class="checkRetira"> 
                               <input type="checkbox" id="retiro_local" value="retiro_local">
                               <p>Retiro en Local</p>
                             </div>   
@@ -398,7 +401,7 @@ contPedido.addEventListener("click", function(){
 
           <div> 
             <p>Algún comentario?</p>
-            <textarea name="textarea" id="textarea" placeholder="Ejemplo: Sin cebolla, abono justo, etc..."></textarea>
+            <textarea name="textarea" id="textarea" cols="30" rows="5" placeholder="Ejemplo: Sin cebolla, abono justo, etc..."></textarea>
           </div>
 
         `;
@@ -419,6 +422,7 @@ contPedido.addEventListener("click", function(){
       } else {
         contDelivery.remove();
       }
+
     });
 
     contenedorPedido.appendChild(btnConfirmar)
@@ -426,7 +430,9 @@ contPedido.addEventListener("click", function(){
 
   // desactivar contenedor delivery si se selecciona retiro local
   if (checkboxRetiroLocal) {
+
     checkboxRetiroLocal.addEventListener('change', function() {
+      
       if (checkboxRetiroLocal.checked) {
         checkboxDelivery.checked = false; // Desmarcar checkbox de entrega
         contDelivery.remove();
@@ -435,7 +441,9 @@ contPedido.addEventListener("click", function(){
 
         alerta.innerHTML = ""
       }
+
     });
+
   }
 
 
@@ -453,6 +461,8 @@ contPedido.addEventListener("click", function(){
     const alerta = document.querySelector(".alerta");
 
     alerta.innerHTML = ""
+
+    let pedidoAprobado = false;
 
     if(!checkboxDelivery.checked && !checkboxRetiroLocal.checked) {
       
@@ -483,6 +493,10 @@ contPedido.addEventListener("click", function(){
         }
       });
 
+      if(!alertaMostrada) {
+        pedidoAprobado  = true;
+      }
+
       const nombreInput = document.querySelector("#nombre");
       const telInput = document.querySelector("#tel");
       const direccionInput = document.querySelector("#direccion");
@@ -495,27 +509,44 @@ contPedido.addEventListener("click", function(){
       const calles = callesInput.value; 
       const textarea = textareaInput.value; 
 
+      let textoDomicilio = `Pedido de:%0A- ${nombre}%0ADireccion:%0A- ${direccion}%0AEntre:%0A- ${calles}%0ATelefono:%0A- ${telefono}%0AObservaciones: %0A- ${textarea}`;
+
+      mensajePedido(textoDomicilio,pedidoAprobado,precioTotal);
     } 
-  
-    // generarMensajePedido
-    let textoPedido = "Mi pedido:%0A";
 
-    pedido.forEach( prod =>  {
-      textoPedido += `- ${prod.cantidad} x $${prod.nombre} ${prod.precio}%0A`
-    })
 
-    
-    textoPedido+= `${precioTotal}`
+    if(checkboxRetiroLocal.checked) {
+      pedidoAprobado = true;
 
-    const apiUrl = `https://web.whatsapp.com/send?phone=+5493794801475&text=${textoPedido}`;
-    
-    window.open(apiUrl);
-
-    console.log(textoPedido)
+      let textoDomicilio = '' 
+      
+      mensajePedido(textoDomicilio,pedidoAprobado,precioTotal)
+    }
   })
 
 })
 
+function mensajePedido (txtDomicilio,pedAprobado,preTotal) {
+  if(pedAprobado) {
+    // generarMensajePedido
+    let textoPedido = "Mi pedido:%0A";
+  
+    pedido.forEach( prod =>  {
+      textoPedido += `- ${prod.cantidad} x ${prod.nombre} $${prod.precio}%0A`
+    })
+  
+    textoPedido+= `Total: $${preTotal}`
+  
+    textoPedido+= txtDomicilio;
+  
+    const apiUrl = `https://api.whatsapp.com/send?phone=+5493794801475&text=${textoPedido}`;
+    
+    window.open(apiUrl);
+  
+    console.log(textoPedido)
+  }
+  
+}
 
 
 

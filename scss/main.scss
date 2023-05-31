@@ -100,6 +100,7 @@
         display: flex;
         margin: 1rem;
         justify-content: center;
+        border-bottom: 1px solid gray;
             .card-img {
                 width: 30%;
                 align-items: center;
@@ -115,8 +116,17 @@
                 width: 70%;
                 .descripcion {
                     word-wrap: break-word;
-                    // overflow-x: hidden;
                 }
+            }
+            .card-btn {
+                background-color: #262626;
+                border-radius: 0.5rem;
+                color: white;
+                border: none;
+                margin-top: 0.2rem;
+                padding: 0.3rem;
+                font-size: 0.9rem;
+                font-weight: bold;
             }
         }
         .card-info {
@@ -160,6 +170,7 @@
         height: 100vh;
     }
     .contenedor-pedido {
+        text-align: center;
         .cont-pedido {
             display: flex;
             justify-content: space-between;
@@ -174,16 +185,80 @@
             border: none;
             color: white;
             font-size: 1.2rem;
+        } 
+        .totalPedido {
+            width: 100%;
+            display: block;
+            text-align: center;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+        }
+        #btn-confirmar-pedido {
+            background-color: #262626;
+            border: none;
+            color: white;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            padding: 0.5rem;
+            margin-top: 0.5rem;
+            border-radius: 4px;
         }
     }
     .card-pedido {
-        img {
-            width: 100%;
+        display: flex;
+        align-items: center;
+        text-align: left;
+        margin: 0.5rem;
+        justify-content: space-between;
+        border-bottom: 1px solid gray;
+        padding-bottom: 0.1rem;
+        .btnXPedido {
+            background-color: transparent;
+            border: none;
+            color: #262626;
+            text-transform: uppercase;
+            font-size: 1.2rem;
+        }
+    }
+  
+}
+
+.campo-invalido {
+    border: 2px solid #ff000091;
+}
+  
+
+.informacion-pedido {
+    .alerta {
+        margin-top:1rem;
+        text-align: center;
+    }
+    .cont-checkbox {
+        display: flex;
+        justify-content: space-evenly;
+        padding: 1rem;
+        .checkRetira, .checkDelivery {
+            display: flex;
+            text-transform: uppercase;
+        }
+    }   
+}
+
+.cont-delivery {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    div {
+        display: flex;
+        flex-direction: column;
+        margin: 1rem 0;
+        width: 90%;
+        label {
+            text-align: left;
+        }
+        input {
+            height: 30px;
         }
     }
 }
 
-.campo-invalido {
-    border: 2px solid red;
-}
-  
