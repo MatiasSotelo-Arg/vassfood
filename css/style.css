@@ -149,10 +149,9 @@ a {
   top: 0;
   left: 0;
   width: 100vw;
-  height: 100vh; }
-
-.contenedor-main .contenedor-pedido {
-  text-align: center; }
+  height: 100vh;
+  text-align: center;
+  overflow-x: auto; }
   .contenedor-main .contenedor-pedido .cont-pedido {
     display: flex;
     justify-content: space-between;

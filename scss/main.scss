@@ -160,17 +160,20 @@
             border-radius: 50%;
         }
     }
+    // .contenedor-pedido {
+    //    
+        
+    // }
     .contenedor-pedido {
         display: none;
-        position: fixed;
-        background-color: white;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-    }
-    .contenedor-pedido {
+            position: fixed;
+            background-color: white;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
         text-align: center;
+        overflow-x: auto;
         .cont-pedido {
             display: flex;
             justify-content: space-between;
