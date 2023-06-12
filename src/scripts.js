@@ -41,8 +41,6 @@ menu.forEach(prod => {
   }
 });
 
-console.log(rubrosMenu);
-
 // muestraCategoriasDom
 const contProducto = document.querySelector("#cont-categorias");
 
@@ -61,8 +59,6 @@ rubrosMenu.forEach(prod => {
   // Click rubro
   submitBtn.addEventListener('click', function() {
 
-      console.log(`click ${prod.nombre}`);
-
       // muestraMenuDom
       const contenedorCategorias = document.querySelector(".contenedor-menu");
 
@@ -80,14 +76,10 @@ rubrosMenu.forEach(prod => {
           return producto;
         });
 
-        console.log(`click ${prod.id}`);
-
         return mostrarProductos;
       }
 
       const producto = agregarProductosCategoria();
-
-      console.log(producto)
 
       // crea cabecera categoria 
       const headerCategoDom = document.createElement("div");
@@ -170,60 +162,75 @@ rubrosMenu.forEach(prod => {
                                 const btnCarrito = cardMenu.querySelector(`#carrito-${prod.id}`);
         
 
-        const checkboxUnidad = document.getElementById('precioUnidad');
-        const checkboxMedia = document.getElementById('precioMedia');
+        const checkboxUnidad = cardMenu.querySelector('#precioUnidad');
+        const checkboxMedia = cardMenu.querySelector('#precioMedia');
         
         let nombre;
         let precio;
         
-        // Verifica si checkboxUnidad existe antes de agregar el event listener
-        if (checkboxUnidad) {
-          checkboxUnidad.addEventListener('click', function() {
-            if (checkboxUnidad.checked) {
-              console.log('Se hizo clic en el checkbox de la unidad');
-              // Asigna el nombre y precio correspondientes
+        if(checkboxMedia) {
+
+          checkboxMedia.addEventListener('click', () => {
+            
               if (prod.rubro === "empanadas") {
-                nombre = `${prod.rubro} ${prod.nombre} (Docena)`;
-              } else {
-                nombre = `${prod.rubro} ${prod.nombre} (Entera)`;
+                nombre = `${prod.rubro} ${prod.nombre} (Media)`;
+                precio = `${prod.precioMedia}`;
               }
+  
+              if (prod.rubro === "pizza") {
+                nombre = `${prod.rubro} ${prod.nombre} (Media)`;
+                precio = `${prod.precioMedia}`;
+              }
+  
+              console.log("checkboxMedia")
+            
+          })
+          
+        }
+      
+        if(checkboxUnidad) {
+
+          checkboxUnidad.addEventListener('click', () => { 
+            if (prod.rubro === "empanadas") {
+              nombre = `${prod.rubro} ${prod.nombre} (Unidad)`;
               precio = `${prod.precioUnidad}`;
-              checkboxMedia.checked = false; // Desmarca el checkbox de la media
             }
-          });
-        }
-        
-        // Agrega el event listener solo si checkboxMedia existe
-        if (checkboxMedia) {
-          checkboxMedia.addEventListener('click', function() {
-            if (checkboxMedia.checked) {
-              console.log('Se hizo clic en el checkbox de la media');
-              // Asigna el nombre y precio correspondientes
-              nombre = `${prod.rubro} ${prod.nombre} (Media)`;
-              precio = `${prod.precioMedia}`;
-              checkboxUnidad.checked = false; // Desmarca el checkbox de la unidad
+  
+            if (prod.rubro === "pizza") {
+              nombre = `${prod.rubro} ${prod.nombre} (Docena)`;
+              precio = `${prod.precioUnidad}`;
             }
-          });
+
+            console.log("checkboxMedia")
+
+          })
+  
         }
-        
+
         // Agrega el producto al carrito
         btnCarrito.addEventListener("click", function() {
           let cantidad = 1;
-          if (nombre && precio) {
+
+          // Verifica si checkboxUnidad está marcado
+          if (checkboxUnidad && checkboxUnidad.checked) {
             pedido.push({ nombre: nombre, precio: precio, cantidad: cantidad });
-            console.log(pedido);
-            nombre = undefined; // Reinicia el valor de nombre
-            precio = undefined; // Reinicia el valor de precio
-            if (checkboxUnidad) checkboxUnidad.checked = false; // Desmarca el checkbox de la unidad si existe
-            if (checkboxMedia) checkboxMedia.checked = false; // Desmarca el checkbox de la media si existe
-          } else {
+          }
+
+          // Verifica si checkboxMedia está marcado
+          if (checkboxMedia && checkboxMedia.checked) {
+            pedido.push({ nombre: nombre, precio: precio, cantidad: cantidad });
+          }
+
+          // Verifica si ni checkboxUnidad ni checkboxMedia están marcados
+          if (!checkboxUnidad && !checkboxMedia) {
             nombre = `${prod.rubro} ${prod.nombre}`;
             precio = `${prod.precioUnidad}`;
             pedido.push({ nombre: nombre, precio: precio, cantidad: cantidad });
-            console.log(pedido);
-            nombre = undefined; // Reinicia el valor de nombre
-            precio = undefined; // Reinicia el valor de precio
           }
+
+          // Desmarca los checkboxes
+          if (checkboxUnidad) checkboxUnidad.checked = false;
+          if (checkboxMedia) checkboxMedia.checked = false;
 
           const contador = document.querySelector("#contador");
           contador.textContent = "✓";
@@ -232,11 +239,13 @@ rubrosMenu.forEach(prod => {
           Swal.fire({
             position: 'center',
             icon: 'success',
-            title: `Se agrego al carrito! \n ${prod.nombre}`,
+            title: `¡Se agregó al carrito!\n${prod.nombre}`,
             showConfirmButton: false,
             timer: 1500
-          })
-        });                   
+          });
+        });
+
+
       })   
 
       // cerrar cabecera categoria
@@ -289,7 +298,6 @@ contPedido.addEventListener("click", function(){
       const indice = pedido.findIndex(elemento => elemento.id === prod.id);
       if (indice !== -1) {
         pedido.splice(indice, 1);
-        console.log(`Elemento con ID ${prod.id} eliminado del pedido.`);
   
         // Eliminar el elemento del DOM
         const elementoEliminar = document.querySelector(`.${prod.id}`);
@@ -297,12 +305,13 @@ contPedido.addEventListener("click", function(){
           elementoEliminar.remove();
   
           // Recalcular el precio total
-          let precioTotal = pedido.reduce((total, producto) => total + Number(producto.precio), 0);
+          let precioTotalCarrito = calcularTotalCarrito();
   
           // Actualizar el elemento del DOM que muestra el total
-          totalCarrito.innerHTML = `Total: $${precioTotal}`;
+          totalCarrito.innerHTML = `Total: $${precioTotalCarrito}`;
         }
       }
+      
       if(pedido.length === 0) {
         
         contenedorPedido.innerHTML = ""
@@ -318,12 +327,12 @@ contPedido.addEventListener("click", function(){
   });
   
   // calcular totalCarrito;
-  let precioTotal = pedido.reduce((total, producto) => total + Number(producto.precio), 0);
+  let precioTotalCarrito = calcularTotalCarrito();
   
   const totalCarrito = document.createElement("strong");
   totalCarrito.classList.add("totalPedido")
   
-  totalCarrito.innerHTML = `Total: $${precioTotal}`;
+  totalCarrito.innerHTML = `Total: $${precioTotalCarrito}`;
   contenedorPedido.appendChild(totalCarrito);
 
   const infoPedido = document.createElement("div");
@@ -505,7 +514,7 @@ contPedido.addEventListener("click", function(){
 
       let textoDomicilio = `Pedido de: ${nombre}%0ADireccion: ${direccion}%0AEntre: ${calles}%0ATelefono: ${telefono}%0A${observacion}%0A%0A`
 
-      mensajePedido(textoDomicilio,pedidoAprobado,precioTotal);
+      mensajePedido(textoDomicilio,pedidoAprobado);
     } 
 
 
@@ -514,7 +523,7 @@ contPedido.addEventListener("click", function(){
 
       let textoDomicilio = '' 
       
-      mensajePedido(textoDomicilio,pedidoAprobado,precioTotal)
+      mensajePedido(textoDomicilio,pedidoAprobado)
     }
   })
 
@@ -524,7 +533,7 @@ contPedido.addEventListener("click", function(){
 
 })
 
-function mensajePedido (txtDomicilio,pedAprobado,preTotal) {
+function mensajePedido (txtDomicilio,pedAprobado) {
   if(pedAprobado) {
     // generarMensajePedido
     let textoPedido = "Mi pedido:%0A%0A";
@@ -535,7 +544,9 @@ function mensajePedido (txtDomicilio,pedAprobado,preTotal) {
   
     textoPedido+= txtDomicilio;
 
-    textoPedido+= `Total del pedido: $${preTotal}`
+    let totalCarrito = calcularTotalCarrito();
+
+    textoPedido+= `Total del pedido: $${totalCarrito}`
   
     const apiUrl = `https://api.whatsapp.com/send?phone=+549379474-8471&text=${textoPedido}`;
     

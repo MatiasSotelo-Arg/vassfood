@@ -31,3 +31,8 @@ btnCerrar.addEventListener("click", function(){
 })
 }
 
+function calcularTotalCarrito () {
+  let precioTotalCarrito = pedido.reduce((total, producto) => total + Number(producto.precio), 0);
+
+  return precioTotalCarrito;
+}
