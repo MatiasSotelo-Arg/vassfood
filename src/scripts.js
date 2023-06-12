@@ -530,7 +530,7 @@ function mensajePedido (txtDomicilio,pedAprobado,preTotal) {
     let textoPedido = "Mi pedido:%0A%0A";
   
     pedido.forEach( prod =>  {
-      textoPedido += `1 - ${prod.cantidad} x ${prod.nombre} $${prod.precio}%0A%0A`
+      textoPedido += `${prod.cantidad} - ${prod.nombre} $${prod.precio}%0A%0A`
     })
   
     textoPedido+= txtDomicilio;
