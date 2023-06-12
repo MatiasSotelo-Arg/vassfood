@@ -116,6 +116,8 @@
                 width: 70%;
                 .descripcion {
                     word-wrap: break-word;
+                    margin-bottom: 0.1rem;
+                    line-height: 1.3rem;
                 }
             }
             .card-btn {
@@ -124,7 +126,7 @@
                 color: white;
                 border: none;
                 margin-top: 0.2rem;
-                padding: 0.3rem;
+                padding: 0.4rem;
                 font-size: 0.9rem;
                 font-weight: bold;
             }
@@ -133,6 +135,14 @@
             .cont-btn {
                 div {
                     display: flex;
+                    p {
+                        margin-right: 10px;
+                        line-height: 20px;
+                    }
+                    .precio {
+                        font-size: 1.1rem;
+                        font-size: bold;
+                    }
                 }
             }
         }
@@ -193,7 +203,7 @@
             width: 100%;
             display: block;
             text-align: center;
-            font-size: 1.2rem;
+            font-size: 1.4rem;
             text-transform: uppercase;
         }
         #btn-confirmar-pedido {
@@ -211,7 +221,7 @@
         display: flex;
         align-items: center;
         text-align: left;
-        margin: 0.5rem;
+        margin-right: 0.5rem;
         justify-content: space-between;
         border-bottom: 1px solid gray;
         padding-bottom: 0.1rem;

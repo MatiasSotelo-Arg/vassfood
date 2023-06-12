@@ -1,0 +1,46 @@
+.cont-Carrito-Vacio {
+    height: 93vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    h2 {
+        margin-bottom: 1rem;
+    }
+    a {
+        width: auto;
+        background-color: #262626;
+        padding: 1rem;
+        border-radius: 0.5rem;
+        color: white;
+        font-weight: bold;
+        text-transform: uppercase;
+        font-size: 1.3rem;
+    }
+}
+
+#delivery, #retiro_local {
+    margin-right: 0.5rem;
+}
+
+.opcion-pedido {
+    border: 1px solid rgba(128, 128, 128, 0.13);
+    padding: 0.5rem;
+}
+
+.alerta {
+    font-size: 1.5rem;
+    text-decoration: underline;
+}
+
+.detalle-pedido {
+    padding: 1rem;
+}
+
+.btnXPedido {
+    padding-right: 5px;
+}
+
+.totalPedido {
+    margin-top: 1rem;
+}

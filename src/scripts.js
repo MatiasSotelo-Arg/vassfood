@@ -115,12 +115,12 @@ rubrosMenu.forEach(prod => {
             let opcion = `<div> 
                             <p>Entera</p>
                             <input type="checkbox" id="precioUnidad" value="first_checkbox">
-                            <p>$${p.precioUnidad}</p> 
+                            <p class="precio"> $${p.precioUnidad}</p> 
                           </div>
                           <div> 
                             <p>Media</p>
                             <input type="checkbox" id="precioMedia" value="first_checkbox">
-                            <p>$${p.precioMedia}</p> 
+                            <p class="precio"> $${p.precioMedia}</p> 
                           </div>
                           `
 
@@ -130,12 +130,12 @@ rubrosMenu.forEach(prod => {
             let opcion = `<div> 
                             <p>Docena</p>
                             <input type="checkbox" id="precioUnidad" value="first_checkbox">
-                            <p> $${p.precioUnidad}</p> 
+                            <p class="precio"> $${p.precioUnidad}</p> 
                           </div>
                           <div> 
                             <p>Media</p>
                             <input type="checkbox" id="precioMedia" value="first_checkbox">
-                            <p> $${p.precioMedia}</p> 
+                            <p class="precio"> $${p.precioMedia}</p> 
                           </div>
                           `
 
@@ -229,36 +229,15 @@ rubrosMenu.forEach(prod => {
           contador.textContent = "✓";
           contador.style.display = "inline";
 
-        });
-                        
-
-
-                                
+          Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: `Se agrego al carrito! \n ${prod.nombre}`,
+            showConfirmButton: false,
+            timer: 1500
+          })
+        });                   
       })   
-
-      
-
-      
-      // contenedorCategorias.addEventListener('click', function(event) {
-      //   const target = event.target;
-        
-      //   if (target.matches('input[type="submit"]')) {
-      //     // El evento corresponde a un botón de agregar
-      //     const id = target.id.split('-')[1]; // Obtener el ID del producto
-
-      //     pedido.push(producto[(id-1)])
-
-      //     // console.log(pedido)
-      //     const contador = document.querySelector("#contador");
-      //     contador.textContent = "✓";
-      //     contador.style.display = "inline";
-
-      //     console.log(pedido);
-
-      //   }
-      // });
-             
-      
 
       // cerrar cabecera categoria
       const btnCerrarCatego = document.querySelector(".btn-cerrar-categoria");
@@ -279,24 +258,24 @@ const contenedorPedido = document.querySelector(".contenedor-pedido");
 contPedido.addEventListener("click", function(){
   contenedorPedido.style.display = "block";
 
-  // crea cabecera categoria 
-  const headerCategoDom = document.createElement("div");
-  headerCategoDom.classList.add("cont-pedido");
-  headerCategoDom.innerHTML = `
-    <h2>Pedido</h2>
-    <button class="btn-cerrar-menu" type="button">X</button>
-  `
-  
-  contenedorPedido.appendChild(headerCategoDom);
+  headerCarrito();
 
-  // Mostrar pedido en carrito
+  cerrarCarrito();
+
+   // Mostrar pedido en carrito
+  if(pedido.length === 0) {
+
+    carritoVacio()
+
+  } else {
+    
   pedido.forEach(prod => {
 
     const cardPedido = document.createElement("div");
     cardPedido.classList.add("card-pedido", prod.id);
   
     cardPedido.innerHTML = `
-      <div>
+      <div class="detalle-pedido">
         <h2>${prod.nombre}</h2>
         <strong>$${prod.precio}</strong>
       </div>
@@ -305,7 +284,7 @@ contPedido.addEventListener("click", function(){
   
     const btnSacarPedido = cardPedido.querySelector(`#${prod.id}`);
   
-    // btn cerrar
+    // btnSacarPedido
     btnSacarPedido.addEventListener('click', function() {
       const indice = pedido.findIndex(elemento => elemento.id === prod.id);
       if (indice !== -1) {
@@ -324,8 +303,16 @@ contPedido.addEventListener("click", function(){
           totalCarrito.innerHTML = `Total: $${precioTotal}`;
         }
       }
+      if(pedido.length === 0) {
+        
+        contenedorPedido.innerHTML = ""
+
+        headerCarrito();
+        carritoVacio();
+        cerrarCarrito();
+      }
     });
-  
+    
     contenedorPedido.appendChild(cardPedido);
 
   });
@@ -349,12 +336,12 @@ contPedido.addEventListener("click", function(){
                           <div class="cont-checkbox">
                             <div class="checkDelivery"> 
                               <input type="checkbox" id="delivery" value="delivery"> 
-                              <p>Delivery</p>
+                              <label class="opcion-pedido" for="delivery">Delivery</label>
                             </div>
 
                             <div class="checkRetira"> 
                               <input type="checkbox" id="retiro_local" value="retiro_local">
-                              <p>Retiro en Local</p>
+                              <label class="opcion-pedido" for="retiro_local">Retiro en Local</label>
                             </div>   
                           </div>
 
@@ -446,15 +433,6 @@ contPedido.addEventListener("click", function(){
 
   }
 
-
-  // btnCerrar
-  const btnCerrar = document.querySelector(".btn-cerrar-menu");
-
-  btnCerrar.addEventListener("click", function(){
-    contenedorPedido.innerHTML = '';
-    contenedorPedido.style.display = "none"
-  })
-
   // valdiar checkbox delivery/retira
   btnConfirmar.addEventListener('click', function() {
 
@@ -485,7 +463,15 @@ contPedido.addEventListener("click", function(){
         if (!campo.validar(campo.input.value)) {
           campo.input.classList.add("campo-invalido");
           if (!alertaMostrada) {
-            alert("Complete todos los campos");
+            
+            Swal.fire({
+              position: 'center',
+              icon: 'warning',
+              title: 'Complete todos los campos',
+              showConfirmButton: false,
+              timer: 1500
+            })
+
             alertaMostrada = true; 
           }
         } else {
@@ -509,7 +495,15 @@ contPedido.addEventListener("click", function(){
       const calles = callesInput.value; 
       const textarea = textareaInput.value; 
 
-      let textoDomicilio = `Pedido de:%0A- ${nombre}%0ADireccion:%0A- ${direccion}%0AEntre:%0A- ${calles}%0ATelefono:%0A- ${telefono}%0AObservaciones: %0A- ${textarea}`;
+      let observacion;
+
+      if(textarea.trim() === "") {
+        observacion = "";
+      } else {
+        observacion = `Observaciones: ${textarea}`
+      }
+
+      let textoDomicilio = `Pedido de: ${nombre}%0ADireccion: ${direccion}%0AEntre: ${calles}%0ATelefono: ${telefono}%0A${observacion}%0A%0A`
 
       mensajePedido(textoDomicilio,pedidoAprobado,precioTotal);
     } 
@@ -524,6 +518,10 @@ contPedido.addEventListener("click", function(){
     }
   })
 
+  }
+
+  
+
 })
 
 function mensajePedido (txtDomicilio,pedAprobado,preTotal) {
@@ -532,14 +530,14 @@ function mensajePedido (txtDomicilio,pedAprobado,preTotal) {
     let textoPedido = "Mi pedido:%0A";
   
     pedido.forEach( prod =>  {
-      textoPedido += `- ${prod.cantidad} x ${prod.nombre} $${prod.precio}%0A`
+      textoPedido += `1 - ${prod.cantidad} x ${prod.nombre} $${prod.precio}%0A`
     })
   
-    textoPedido+= `Total: $${preTotal}`
+    textoPedido+= `Total del pedido: $${preTotal}`
   
     textoPedido+= txtDomicilio;
   
-    const apiUrl = `https://api.whatsapp.com/send?phone=+5493794801475&text=${textoPedido}`;
+    const apiUrl = `https://api.whatsapp.com/send?phone=+549379474-8471&text=${textoPedido}`;
     
     window.open(apiUrl);
   
@@ -547,8 +545,6 @@ function mensajePedido (txtDomicilio,pedAprobado,preTotal) {
   }
   
 }
-
-
 
 
 

@@ -108,18 +108,26 @@ a {
       padding: 1rem;
       width: 70%; }
       .contenedor-main .contenedor-menu .card-menu .card-info .descripcion {
-        word-wrap: break-word; }
+        word-wrap: break-word;
+        margin-bottom: 0.1rem;
+        line-height: 1.3rem; }
     .contenedor-main .contenedor-menu .card-menu .card-btn {
       background-color: #262626;
       border-radius: 0.5rem;
       color: white;
       border: none;
       margin-top: 0.2rem;
-      padding: 0.3rem;
+      padding: 0.4rem;
       font-size: 0.9rem;
       font-weight: bold; }
   .contenedor-main .contenedor-menu .card-info .cont-btn div {
     display: flex; }
+    .contenedor-main .contenedor-menu .card-info .cont-btn div p {
+      margin-right: 10px;
+      line-height: 20px; }
+    .contenedor-main .contenedor-menu .card-info .cont-btn div .precio {
+      font-size: 1.1rem;
+      font-size: bold; }
 
 .contenedor-main .contenedor-logo-pedido {
   width: 3.5rem;
@@ -169,7 +177,7 @@ a {
     width: 100%;
     display: block;
     text-align: center;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     text-transform: uppercase; }
   .contenedor-main .contenedor-pedido #btn-confirmar-pedido {
     background-color: #262626;
@@ -185,7 +193,7 @@ a {
   display: flex;
   align-items: center;
   text-align: left;
-  margin: 0.5rem;
+  margin-right: 0.5rem;
   justify-content: space-between;
   border-bottom: 1px solid gray;
   padding-bottom: 0.1rem; }
@@ -224,3 +232,41 @@ a {
       text-align: left; }
     .cont-delivery div input {
       height: 30px; }
+
+.cont-Carrito-Vacio {
+  height: 93vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+  .cont-Carrito-Vacio h2 {
+    margin-bottom: 1rem; }
+  .cont-Carrito-Vacio a {
+    width: auto;
+    background-color: #262626;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 1.3rem; }
+
+#delivery, #retiro_local {
+  margin-right: 0.5rem; }
+
+.opcion-pedido {
+  border: 1px solid rgba(128, 128, 128, 0.13);
+  padding: 0.5rem; }
+
+.alerta {
+  font-size: 1.5rem;
+  text-decoration: underline; }
+
+.detalle-pedido {
+  padding: 1rem; }
+
+.btnXPedido {
+  padding-right: 5px; }
+
+.totalPedido {
+  margin-top: 1rem; }
