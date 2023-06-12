@@ -527,15 +527,15 @@ contPedido.addEventListener("click", function(){
 function mensajePedido (txtDomicilio,pedAprobado,preTotal) {
   if(pedAprobado) {
     // generarMensajePedido
-    let textoPedido = "Mi pedido:%0A";
+    let textoPedido = "Mi pedido:%0A%0A";
   
     pedido.forEach( prod =>  {
-      textoPedido += `1 - ${prod.cantidad} x ${prod.nombre} $${prod.precio}%0A`
+      textoPedido += `1 - ${prod.cantidad} x ${prod.nombre} $${prod.precio}%0A%0A`
     })
   
-    textoPedido+= `Total del pedido: $${preTotal}`
-  
     textoPedido+= txtDomicilio;
+
+    textoPedido+= `Total del pedido: $${preTotal}`
   
     const apiUrl = `https://api.whatsapp.com/send?phone=+549379474-8471&text=${textoPedido}`;
     
