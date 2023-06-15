@@ -332,7 +332,7 @@ const menu = [
       precioUnidad: 0
     },
     {
-      img: 14,
+      img: 'figazza',
       rubro: 'figazzas lomo',
       nombre: 'completa',
       descripcion: 'pan de figazza,medallones de carne o lomo,huevo,jamon, queso muzza,mayonesa de la casa,tomates.',
@@ -340,35 +340,35 @@ const menu = [
       promos: 1
     },
     {
-      img: 14,
+      img: 'figazza',
       rubro: 'figazzas lomo',
       nombre: 'gratinada',
       descripcion: 'pan de figazza,medallones de carne o lomo,huevo,jamon, queso muzza,mayonesa de la casa,tomates, gratinado',
       precioUnidad: 0
     },
     {
-      img: 14,
+      img: 'figazza',
       rubro: 'figazzas lomo',
       nombre: 'mustard',
       descripcion: 'pan de figazza, gratinado con salchichas salteadas,cebolla a la mostaza,medallones de carne o lomo,huevo, queso muzza,jamon, tomates, mayonesa de la casa',
       precioUnidad: 0
     },
     {
-      img: 14,
+      img: 'figazza',
       rubro: 'figazzas hamburguesa',
       nombre: 'completa',
       descripcion: 'pan de figazza,medallones de carne o lomo,huevo,jamon, queso muzza,mayonesa de la casa,tomates.',
       precioUnidad: 0
     },
     {
-      img: 14,
+      img: 'figazza',
       rubro: 'figazzas hamburguesa',
       nombre: 'gratinada',
       descripcion: 'pan de figazza,medallones de carne o lomo,huevo,jamon, queso muzza,mayonesa de la casa,tomates, gratinado',
       precioUnidad: 0
     },
     {
-      img: 14,
+      img: 'figazza',
       rubro: 'figazzas hamburguesa',
       nombre: 'mustard',
       descripcion: 'pan de figazza, gratinado con salchichas salteadas,cebolla a la mostaza,medallones de carne o lomo,huevo, queso muzza,jamon, tomates, mayonesa de la casa',
@@ -397,7 +397,7 @@ const menu = [
       precioUnidad: 0
     },
     {
-      img: 14,
+      img: 'APC_0212',
       rubro: 'pizzanesas',
       nombre: 'morrones y cebolla',
       descripcion: 'milanesa de carne, morrones asados,cebolla salteadas,salsa de la casa, queso muzza,papas rusticas',
@@ -405,7 +405,7 @@ const menu = [
       promos: 1
     },
     {
-      img: 14,
+      img: 'APC_0212',
       rubro: 'pizzanesas',
       nombre: 'bacon',
       descripcion: 'milanesa de carne, salsa de la casa,queso muzza , cheddar, panceta salteada , verdeo fresco, papas rusticas',
@@ -427,7 +427,7 @@ const menu = [
       precioUnidad: 0
     },
     {
-      img: 14,
+      img: 'hamburpizza',
       rubro: 'hamburpizza',
       nombre: 'completa',
       descripcion: 'prepizza caseras, queso muzza, medallones de carne, tomates, huevo , jamon ,mayonesa de la casa, papas rusticas',
