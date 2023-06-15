@@ -178,7 +178,7 @@ rubrosMenu.forEach(prod => {
               }
   
               if (prod.rubro === "pizza") {
-                nombre = `${prod.rubro} ${prod.nombre} media pizza`;
+                nombre = `Media ${prod.rubro} ${prod.nombre}`;
                 precio = `${prod.precioMedia}`;
               }
   
