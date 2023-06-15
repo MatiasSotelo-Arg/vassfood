@@ -173,12 +173,12 @@ rubrosMenu.forEach(prod => {
           checkboxMedia.addEventListener('click', () => {
             
               if (prod.rubro === "empanadas") {
-                nombre = `${prod.rubro} ${prod.nombre} (Media)`;
+                nombre = `${prod.rubro} ${prod.nombre} media docena`;
                 precio = `${prod.precioMedia}`;
               }
   
               if (prod.rubro === "pizza") {
-                nombre = `${prod.rubro} ${prod.nombre} (Media)`;
+                nombre = `${prod.rubro} ${prod.nombre} media pizza`;
                 precio = `${prod.precioMedia}`;
               }
   
@@ -192,12 +192,12 @@ rubrosMenu.forEach(prod => {
 
           checkboxUnidad.addEventListener('click', () => { 
             if (prod.rubro === "empanadas") {
-              nombre = `${prod.rubro} ${prod.nombre} (Unidad)`;
+              nombre = `${prod.rubro} ${prod.nombre} una docena`;
               precio = `${prod.precioUnidad}`;
             }
   
             if (prod.rubro === "pizza") {
-              nombre = `${prod.rubro} ${prod.nombre} (Docena)`;
+              nombre = `${prod.rubro} ${prod.nombre}`;
               precio = `${prod.precioUnidad}`;
             }
 
