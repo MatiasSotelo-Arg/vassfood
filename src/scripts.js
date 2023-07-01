@@ -549,18 +549,21 @@ function mensajePedido (txtDomicilio,pedAprobado) {
     textoPedido+= `Total del pedido: \n$${totalCarrito}`
 
         // Verificar si el dispositivo es iOS
-    const isIOS = /iPhone|iPad|iPod/.test(navigator.userAgent);
+    // const isIOS = /iPhone|iPad|iPod/.test(navigator.userAgent);
 
     // Número de teléfono y texto del mensaje
-    const phoneNumber = "+549379474-8471";
+    const phoneNumber = "5493794748471";
 
     // Generar el enlace de WhatsApp
-    let apiUrl;
-    if (isIOS) {
-      apiUrl = `whatsapp://send?phone=${encodeURIComponent(phoneNumber)}&text=${encodeURIComponent(textoPedido)}`;
-    } else {
-      apiUrl = `https://api.whatsapp.com/send?phone=${encodeURIComponent(phoneNumber)}&text=${encodeURIComponent(textoPedido)}`;
-    }
+    // let apiUrl;
+    // if (isIOS) {
+    //   apiUrl = `whatsapp://app?phone=${encodeURIComponent(phoneNumber)}&text=${encodeURIComponent(textoPedido)}`;
+    // } else {
+    //   apiUrl = `https://api.whatsapp.com/send?phone=${encodeURIComponent(phoneNumber)}&text=${encodeURIComponent(textoPedido)}`;
+    // }
+
+    const apiUrl = `https://wa.me/${phoneNumber}?text=${textoPedido}`
+    // const apiUrl = `whatsapp://app?phone=${encodeURIComponent(phoneNumber)}&text=${encodeURIComponent(textoPedido)}`
 
     // Redireccionar al enlace de WhatsApp
     window.location.href = apiUrl;
@@ -572,9 +575,10 @@ function mensajePedido (txtDomicilio,pedAprobado) {
     // console.log(textoPedido)
   }
   
+  
 }
 
-
+// https://faq.whatsapp.com/425247423114725/?locale=es_LA&cms_platform=iphone
 
 
 
