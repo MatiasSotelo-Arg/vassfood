@@ -133,7 +133,23 @@ rubrosMenu.forEach(prod => {
 
             return opcion;
 
-          } else {
+          } else if (p.rubro === "tartas y calzone"){
+
+            let opcion = `<div> 
+                            <p>Tarta</p>
+                            <input type="checkbox" id="precioUnidad" value="first_checkbox">
+                            <p class="precio"> $${p.precioUnidad}</p> 
+                          </div>
+                          <div> 
+                            <p>Calzone</p>
+                            <input type="checkbox" id="precioMedia" value="first_checkbox">
+                            <p class="precio"> $${p.precioMedia}</p> 
+                          </div>
+            `
+
+            return opcion;    
+
+          } else {    
             let opcion = `<p>$${p.precioUnidad} </p>`
             return opcion;  
           }
@@ -181,7 +197,12 @@ rubrosMenu.forEach(prod => {
                 nombre = `Media ${prod.rubro} ${prod.nombre}`;
                 precio = `${prod.precioMedia}`;
               }
-  
+
+              if (prod.rubro === "tartas y calzone") {
+                nombre = `calzone ${prod.rubro} ${prod.nombre}`;
+                precio = `${prod.precioMedia}`;
+              }
+
               console.log("checkboxMedia")
             
           })
@@ -197,6 +218,11 @@ rubrosMenu.forEach(prod => {
             }
   
             if (prod.rubro === "pizza") {
+              nombre = `${prod.rubro} ${prod.nombre}`;
+              precio = `${prod.precioUnidad}`;
+            }
+
+            if (prod.rubro === "tartas y calzone") {
               nombre = `${prod.rubro} ${prod.nombre}`;
               precio = `${prod.precioUnidad}`;
             }
@@ -512,7 +538,7 @@ contPedido.addEventListener("click", function(){
         observacion = `Observaciones: ${textarea}`
       }
 
-      let textoDomicilio = `\nPedido de:\n- ${nombre}\nDireccion:\n- ${direccion}\nEntre:\n- ${calles}\nTelefono:\n- ${telefono}\n- ${observacion}\n`
+      let textoDomicilio = `%0APedido de:%0A- ${nombre}%0ADireccion:%0A- ${direccion}%0AEntre:%0A- ${calles}%0ATelefono:%0A- ${telefono}%0A- ${observacion}%0A`
 
       mensajePedido(textoDomicilio,pedidoAprobado);
     } 
@@ -536,43 +562,24 @@ contPedido.addEventListener("click", function(){
 function mensajePedido (txtDomicilio,pedAprobado) {
   if(pedAprobado) {
     // generarMensajePedido
-    let textoPedido = "Mi pedido:\n";
+    let textoPedido = "Mi pedido:%0A";
   
     pedido.forEach( prod =>  {
-      textoPedido += `${prod.cantidad} - ${prod.nombre} $${prod.precio}\n`
+      textoPedido += `${prod.cantidad} - ${prod.nombre} $${prod.precio}%0A`
     })
   
     textoPedido+= txtDomicilio;
 
     let totalCarrito = calcularTotalCarrito();
 
-    textoPedido+= `Total del pedido: \n$${totalCarrito}`
-
-        // Verificar si el dispositivo es iOS
-    // const isIOS = /iPhone|iPad|iPod/.test(navigator.userAgent);
-
-    // Número de teléfono y texto del mensaje
+    textoPedido+= `%0ATotal del pedido: %0A$${totalCarrito}`
+    
     const phoneNumber = "5493794748471";
 
-    // Generar el enlace de WhatsApp
-    // let apiUrl;
-    // if (isIOS) {
-    //   apiUrl = `whatsapp://app?phone=${encodeURIComponent(phoneNumber)}&text=${encodeURIComponent(textoPedido)}`;
-    // } else {
-    //   apiUrl = `https://api.whatsapp.com/send?phone=${encodeURIComponent(phoneNumber)}&text=${encodeURIComponent(textoPedido)}`;
-    // }
-
     const apiUrl = `https://wa.me/${phoneNumber}?text=${textoPedido}`
-    // const apiUrl = `whatsapp://app?phone=${encodeURIComponent(phoneNumber)}&text=${encodeURIComponent(textoPedido)}`
 
-    // Redireccionar al enlace de WhatsApp
     window.location.href = apiUrl;
   
-    // const apiUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${textoPedido}`;
-    
-    // window.open(apiUrl);
-  
-    // console.log(textoPedido)
   }
   
   

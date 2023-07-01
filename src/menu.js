@@ -82,7 +82,7 @@ const menu = [
   {
     img: '43f7f264-66a1-423e-88d8-ed387042a0fb',
     rubro: 'empanadas',
-    nombre: 'de carne',
+    nombre: 'carne',
     descripcion: 'carne cortada a cuchillo,morrones,cebollas,verdeo,comdimentos,huevo',
     precioUnidad: 1700,
     precioMedia: 1000,
@@ -91,7 +91,7 @@ const menu = [
   {
     img: '43f7f264-66a1-423e-88d8-ed387042a0fb',
     rubro: 'empanadas',
-    nombre: 'de carne cortada a cuchillo',
+    nombre: 'carne cortada a cuchillo',
     descripcion: 'carne cortada a cuchillo,cheddar,panceta salteada ,verdeo',
     precioUnidad: 2000,
     precioMedia: 1100
@@ -99,7 +99,7 @@ const menu = [
   {
     img: '43f7f264-66a1-423e-88d8-ed387042a0fb',
     rubro: 'empanadas',
-    nombre: 'de jamon y queso',
+    nombre: 'jamon y queso',
     descripcion: 'quezzo muzza, jamon cocido',
     precioUnidad: 1600,
     precioMedia: 1000
@@ -145,28 +145,32 @@ const menu = [
     rubro: 'tartas y calzone',
     nombre: 'jamon y queso',
     descripcion: 'queso muzza, jamon cocido',
-    precioUnidad: 1500
+    precioUnidad: 1500,
+    precioMedia: 1200,
   },
   {
     img: 'imag',
     rubro: 'tartas y calzone',
     nombre: 'capresse',
     descripcion: 'tomates cortado en cubos,queso muzza, albahaca',
-    precioUnidad: 1500
+    precioUnidad: 1500,
+    precioMedia: 1200,
   },
   {
     img: 'imag',
     rubro: 'tartas y calzone',
     nombre: 'fugazzeta',
     descripcion: 'cebollas salteadas,queso muzza',
-    precioUnidad: 1500
+    precioUnidad: 1500,
+    precioMedia: 1200,
   },
   {
     img: 'imag',
     rubro: 'tartas y calzone',
     nombre: 'napolitana',
     descripcion: 'tomates en rodajas,huevo hervido,oregano,queso muzza',
-    precioUnidad: 1600
+    precioUnidad: 1600,
+    precioMedia: 1300,
   },
   {
     img: 13,
@@ -178,21 +182,21 @@ const menu = [
   {
     img: 13,
     rubro: 'tacos',
-    nombre: 'de carne',
+    nombre: 'carne',
     descripcion: 'carne cortada a cuchillo,morrones,cebollas,verdeo,comdimentos,huevo',
     precioUnidad: 700
   },
   {
     img: 13,
     rubro: 'tacos',
-    nombre: 'de pollo',
+    nombre: 'pollo',
     descripcion: 'pollo salteado con vegetales',
     precioUnidad: 700
   },
   {
     img: 13,
     rubro: 'tacos',
-    nombre: 'de verduras',
+    nombre: 'verduras',
     descripcion: 'vegetales salteados , muzza',
     precioUnidad: 600
   },
@@ -411,12 +415,14 @@ const menu = [
     precioMedia: 2600
   },
   {
+    img: 'sandwich',
     rubro: 'sandwiches',
     nombre: 'completo',
     descripcion: 'pan alargado, milanesa de carne,huevo,muzza,jamon,tomates,mayonesa de la casa',
     precioUnidad: 1600
   },
   {
+    img: 'sandwich',
     rubro: 'sandwiches',
     nombre: 'tenaza gratinada',
     descripcion: 'pan alargado 45cm aprox,milanesa de carne,huevo,muzza,jamon,tomates,gratinado,mayonesa de la casa',
