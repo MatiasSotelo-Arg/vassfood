@@ -512,7 +512,7 @@ contPedido.addEventListener("click", function(){
         observacion = `Observaciones: ${textarea}`
       }
 
-      let textoDomicilio = `Pedido de: ${nombre}%0ADireccion: ${direccion}%0AEntre: ${calles}%0ATelefono: ${telefono}%0A${observacion}%0A%0A`
+      let textoDomicilio = `\nPedido de:\n- ${nombre}\nDireccion:\n- ${direccion}\nEntre:\n- ${calles}\nTelefono:\n- ${telefono}\n- ${observacion}\n`
 
       mensajePedido(textoDomicilio,pedidoAprobado);
     } 
@@ -536,17 +536,17 @@ contPedido.addEventListener("click", function(){
 function mensajePedido (txtDomicilio,pedAprobado) {
   if(pedAprobado) {
     // generarMensajePedido
-    let textoPedido = "Mi pedido:%0A%0A";
+    let textoPedido = "Mi pedido:\n";
   
     pedido.forEach( prod =>  {
-      textoPedido += `${prod.cantidad} - ${prod.nombre} $${prod.precio}%0A%0A`
+      textoPedido += `${prod.cantidad} - ${prod.nombre} $${prod.precio}\n`
     })
   
     textoPedido+= txtDomicilio;
 
     let totalCarrito = calcularTotalCarrito();
 
-    textoPedido+= `Total del pedido: $${totalCarrito}`
+    textoPedido+= `Total del pedido: \n$${totalCarrito}`
 
         // Verificar si el dispositivo es iOS
     const isIOS = /iPhone|iPad|iPod/.test(navigator.userAgent);
