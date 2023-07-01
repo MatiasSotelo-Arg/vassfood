@@ -547,15 +547,35 @@ function mensajePedido (txtDomicilio,pedAprobado) {
     let totalCarrito = calcularTotalCarrito();
 
     textoPedido+= `Total del pedido: $${totalCarrito}`
+
+        // Verificar si el dispositivo es iOS
+    const isIOS = /iPhone|iPad|iPod/.test(navigator.userAgent);
+
+    // Número de teléfono y texto del mensaje
+    const phoneNumber = "+549379474-8471";
+
+    // Generar el enlace de WhatsApp
+    let apiUrl;
+    if (isIOS) {
+      apiUrl = `whatsapp://send?phone=${encodeURIComponent(phoneNumber)}&text=${encodeURIComponent(textoPedido)}`;
+    } else {
+      apiUrl = `https://api.whatsapp.com/send?phone=${encodeURIComponent(phoneNumber)}&text=${encodeURIComponent(textoPedido)}`;
+    }
+
+    // Redireccionar al enlace de WhatsApp
+    window.location.href = apiUrl;
   
-    const apiUrl = `https://api.whatsapp.com/send?phone=+549379474-8471&text=${textoPedido}`;
+    // const apiUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${textoPedido}`;
     
-    window.open(apiUrl);
+    // window.open(apiUrl);
   
-    console.log(textoPedido)
+    // console.log(textoPedido)
   }
   
 }
+
+
+
 
 
 
