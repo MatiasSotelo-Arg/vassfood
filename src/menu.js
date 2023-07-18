@@ -367,7 +367,7 @@ const menu = [
     "precioUnidad": 2800
   },
   {
-    "img": "APC_0239",
+    "img": "APC",
     "rubro": "milanesas",
     "nombre": "al plato",
     "descripcion": "milanesa de carne, papas rusticas",
