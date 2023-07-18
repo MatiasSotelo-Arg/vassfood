@@ -140,12 +140,13 @@ rubrosMenu.forEach(prod => {
                             <input type="checkbox" id="precioUnidad" value="first_checkbox">
                             <p class="precio"> $${p.precioUnidad}</p> 
                           </div>
-                          <div> 
-                            <p>Calzone</p>
-                            <input type="checkbox" id="precioMedia" value="first_checkbox">
-                            <p class="precio"> $${p.precioMedia}</p> 
-                          </div>
-            `
+                        
+            `  
+          //   <div> 
+          //   <p>Calzone</p>
+          //   <input type="checkbox" id="precioMedia" value="first_checkbox">
+          //   <p class="precio"> $${p.precioMedia}</p> 
+          // </div>
 
             return opcion;    
 

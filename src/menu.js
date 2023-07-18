@@ -110,7 +110,6 @@ const menu = [
     "descripcion": "pollo salteado,cebollas,morrones,verdeo,condimentos",
     "precioUnidad": 1600,
     "precioMedia": 1000,
-    "__EMPTY_1": ""
   },
   {
     "img": "43f7f264-66a1-423e-88d8-ed387042a0fb",
@@ -119,7 +118,6 @@ const menu = [
     "descripcion": "cebollas salteadas,queso muzza",
     "precioUnidad": 1600,
     "precioMedia": 1000,
-    "__EMPTY_1": ""
   },
   {
     "img": "IMG_2454",
@@ -128,7 +126,6 @@ const menu = [
     "descripcion": "queso muzza,tomates en cubos,albahaca",
     "precioUnidad": 1600,
     "precioMedia": 1000,
-    "__EMPTY_1": ""
   },
   {
     "img": "43f7f264-66a1-423e-88d8-ed387042a0fb",
@@ -137,7 +134,6 @@ const menu = [
     "descripcion": "queso muzza, maiz en grano",
     "precioUnidad": 1600,
     "precioMedia": 1000,
-    "__EMPTY_1": ""
   },
   {
     "img": "imag",
@@ -161,7 +157,7 @@ const menu = [
     "precioUnidad": 1500
   },
   {
-    "img": "imagenmimagenm",
+    "img": "imag",
     "rubro": "tartas y calzone",
     "nombre": "napolitana",
     "descripcion": "tomates en rodajas,huevo hervido,oregano,queso muzza",
@@ -301,7 +297,7 @@ const menu = [
     "precioUnidad": 1300
   },
   {
-    "img": "imagen 31",
+    "img": "14",
     "rubro": "lomitos",
     "nombre": "completo",
     "descripcion": "pan alargado,lomo,huevo,muzza,jamon,tomates,mayonesa de la casa",
