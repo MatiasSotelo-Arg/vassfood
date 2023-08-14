@@ -306,7 +306,6 @@ const menu = [
   },
   {
     "img": "lomo completo",
-    "rubro": "lomitos",
     "nombre": "completo",
     "descripcion": "pan alargado,lomo,huevo,muzza,jamon,tomates,mayonesa de la casa",
     "precioUnidad": 2200
