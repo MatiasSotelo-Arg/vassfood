@@ -140,17 +140,80 @@ rubrosMenu.forEach(prod => {
                             <input type="checkbox" id="precioUnidad" value="first_checkbox">
                             <p class="precio"> $${p.precioUnidad}</p> 
                           </div>
+
+                            <div> 
+                            <p>Calzone</p>
+                            <input type="checkbox" id="precioMedia" value="first_checkbox">
+                            <p class="precio"> $${p.precioMedia}</p> 
+                          </div>
                         
             `  
-          //   <div> 
-          //   <p>Calzone</p>
-          //   <input type="checkbox" id="precioMedia" value="first_checkbox">
-          //   <p class="precio"> $${p.precioMedia}</p> 
-          // </div>
 
             return opcion;    
 
-          } else {    
+          } else if (p.rubro === "pizzanesas"){
+
+            let opcion = `<div> 
+                            <p>Grande</p>
+                            <input type="checkbox" id="precioUnidad" value="first_checkbox">
+                            <p class="precio"> $${p.precioUnidad}</p> 
+                          </div>
+
+                            <div> 
+                            <p>Chica</p>
+                            <input type="checkbox" id="precioMedia" value="first_checkbox">
+                            <p class="precio"> $${p.precioMedia}</p> 
+                          </div>
+                        
+            `  
+
+            return opcion;    
+
+          } else if (p.rubro === "milanesas") {
+              let opcion = `<div> 
+              <p>Grande</p>
+              <input type="checkbox" id="precioUnidad" value="first_checkbox">
+              <p class="precio"> $${p.precioUnidad}</p> 
+            </div>
+            <div> 
+              <p>Chica</p>
+              <input type="checkbox" id="precioMedia" value="first_checkbox">
+              <p class="precio"> $${p.precioMedia}</p> 
+            </div>
+            `
+
+            return opcion;
+
+          } else if (p.rubro === "pizzanesas") {
+              let opcion = `<div> 
+              <p>Grande</p>
+              <input type="checkbox" id="precioUnidad" value="first_checkbox">
+              <p class="precio"> $${p.precioUnidad}</p> 
+            </div>
+            <div> 
+              <p>Chica</p>
+              <input type="checkbox" id="precioMedia" value="first_checkbox">
+              <p class="precio"> $${p.precioMedia}</p> 
+            </div>
+            `
+
+            return opcion;
+
+          } else if (p.rubro === "hamburpizza") {
+            let opcion = `<div> 
+            <p>Grande</p>
+            <input type="checkbox" id="precioUnidad" value="first_checkbox">
+            <p class="precio"> $${p.precioUnidad}</p> 
+          </div>
+          <div> 
+            <p>Chica</p>
+            <input type="checkbox" id="precioMedia" value="first_checkbox">
+            <p class="precio"> $${p.precioMedia}</p> 
+          </div>
+          `
+
+          return opcion;
+          } else {
             let opcion = `<p>$${p.precioUnidad} </p>`
             return opcion;  
           }
@@ -185,6 +248,7 @@ rubrosMenu.forEach(prod => {
         let nombre;
         let precio;
         
+        // CHICA - MEDIA
         if(checkboxMedia) {
 
           checkboxMedia.addEventListener('click', () => {
@@ -195,7 +259,7 @@ rubrosMenu.forEach(prod => {
               }
   
               if (prod.rubro === "pizza") {
-                nombre = `Media ${prod.rubro} ${prod.nombre}`;
+                nombre = `media ${prod.rubro} ${prod.nombre}`;
                 precio = `${prod.precioMedia}`;
               }
 
@@ -204,12 +268,27 @@ rubrosMenu.forEach(prod => {
                 precio = `${prod.precioMedia}`;
               }
 
+              if (prod.rubro === "milanesas") {
+                nombre = `${prod.rubro} ${prod.nombre} (chica)`;
+                precio = `${prod.precioMedia}`;
+              }
+
+              if (prod.rubro === "pizzanesas") {
+                nombre = `${prod.rubro} ${prod.nombre} (chica)`;
+                precio = `${prod.precioMedia}`;
+              }
+
+              
+              if (prod.rubro === "hamburpizza") {
+                nombre = `${prod.rubro} ${prod.nombre} (chica)`;
+                precio = `${prod.precioMedia}`;
+              }
               console.log("checkboxMedia")
             
           })
           
         }
-      
+        //UNIDAD - GRANDE
         if(checkboxUnidad) {
 
           checkboxUnidad.addEventListener('click', () => { 
@@ -225,6 +304,21 @@ rubrosMenu.forEach(prod => {
 
             if (prod.rubro === "tartas y calzone") {
               nombre = `${prod.rubro} ${prod.nombre}`;
+              precio = `${prod.precioUnidad}`;
+            }
+  
+            if (prod.rubro === "milanesas") {
+              nombre = `${prod.rubro} ${prod.nombre} (grande)`;
+              precio = `${prod.precioUnidad}`;
+            }
+
+            if (prod.rubro === "pizzanesas") {
+              nombre = `${prod.rubro} ${prod.nombre} (grande)`;
+              precio = `${prod.precioUnidad}`;
+            }
+
+            if (prod.rubro === "hamburpizza") {
+              nombre = `${prod.rubro} ${prod.nombre} (grande)`;
               precio = `${prod.precioUnidad}`;
             }
 
