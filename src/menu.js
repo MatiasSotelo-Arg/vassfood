@@ -4,112 +4,112 @@ const menu = [
     "rubro": "pizza",
     "nombre": "muzza",
     "descripcion": "queso muzza,prepizza cacera,salsa de la casa,aceitunas,oregano.",
-    "precioUnidad": 1700,
-    "precioMedia": 1400
+    "precioUnidad": 2000,
+    "precioMedia": 1500
   },
   {
     "img": "muzza con huevo2",
     "rubro": "pizza",
     "nombre": "muzza con huevo",
     "descripcion": "queso muzza,prepizza cacera,salsa de la casa,aceitunas,huevo rallado, oregano.",
-    "precioUnidad": 2000,
-    "precioMedia": 1400
+    "precioUnidad": 2200,
+    "precioMedia": 1500
   },
   {
     "img": "muzza",
     "rubro": "pizza",
     "nombre": "fugazzeta",
     "descripcion": "queso muzza,prepizza cacera,salsa de la casa,aceitunas,cebolla salteadas,oregano",
-    "precioUnidad": 2200,
-    "precioMedia": 1500
+    "precioUnidad": 2500,
+    "precioMedia": 1600
   },
   {
     "img": "muzza",
     "rubro": "pizza",
     "nombre": "napolitana",
     "descripcion": "queso muzza,prepizza cacera,salsa de la casa,aceitunas,tomates en rodajas,oregano",
-    "precioUnidad": 2200,
-    "precioMedia": 1500
+    "precioUnidad": 2500,
+    "precioMedia": 1600
   },
   {
     "img": "pizza americana",
     "rubro": "pizza",
     "nombre": "americana",
     "descripcion": "queso muzza,prepizza casera,huevos a caballo,panceta salteada,salsa de la casa,aceituna,oregano.",
-    "precioUnidad": 2700,
-    "precioMedia": 1500
+    "precioUnidad": 2800,
+    "precioMedia": 1600
   },
   {
     "img": "pizza calabresa",
     "rubro": "pizza",
     "nombre": "calabresa",
     "descripcion": "queso muzza, prepizza cacera,salamin en rodajas,queso ,muzza,aceitunas,oregano",
-    "precioUnidad": 2400,
-    "precioMedia": 1500
+    "precioUnidad": 2800,
+    "precioMedia": 1700
   },
   {
     "img": "pizza jamon y morrones",
     "rubro": "pizza",
     "nombre": "jamon y morrones",
     "descripcion": "queso muzza,prepizza cacera,salsa de la casa,aceitunas,jamon cocido, morrones asados,oregano",
-    "precioUnidad": 2400,
-    "precioMedia": 1400
+    "precioUnidad": 2600,
+    "precioMedia": 1600
   },
   {
     "img": "pizza criolla",
     "rubro": "pizza",
     "nombre": "criolla",
     "descripcion": "queso muzza,prepiza casera, relleno de carne cortada a cuchillo,salsa de la casa, huevo rallado,verdeo,aceitunas.",
-    "precioUnidad": 2800,
-    "precioMedia": 1500
+    "precioUnidad": 3000,
+    "precioMedia": 1700
   },
   {
     "img": "muzza",
     "rubro": "pizza",
     "nombre": "roqueford",
     "descripcion": "queso muzza,prepizza casera,queso azul,salsa de la casa,aceitunas,oregano.",
-    "precioUnidad": 2400,
-    "precioMedia": 1500
+    "precioUnidad": 2800,
+    "precioMedia": 1700
   },
   {
     "img": "muzza con huevo.jpg 3",
     "rubro": "pizza",
     "nombre": "vassfood",
     "descripcion": "queso muzza ,prepizza casera,salsa de la casa,cebolla salteadas,barbacoa,aceitunas,panceta salteada,oregano",
-    "precioUnidad": 2500,
-    "precioMedia": 1500
+    "precioUnidad": 2800,
+    "precioMedia": 1700
   },
   {
     "img": "docena de carne",
     "rubro": "empanadas",
     "nombre": "carne cortada a cuchillo",
     "descripcion": "carne cortada a cuchillo,morrones,cebollas,verdeo,comdimentos,huevo",
-    "precioUnidad": 3000,
-    "precioMedia": 1700
+    "precioUnidad": 3400,
+    "precioMedia": 2000
   },
   {
     "img": "doc cheddar con panceta",
     "rubro": "empanadas",
     "nombre": "carne cortada a cuchillo con cheddar y panceta",
     "descripcion": "carne cortada a cuchillo,cheddar,panceta salteada ,verdeo",
-    "precioUnidad": 3600,
-    "precioMedia": 1900
+    "precioUnidad": 3700,
+    "precioMedia": 2200
   },
   {
     "img": "capresse y jyq",
     "rubro": "empanadas",
     "nombre": "jamon y queso",
     "descripcion": "quezzo muzza, jamon cocido",
-    "precioUnidad": 2500,
-    "precioMedia": 1500
+    "precioUnidad": 3000,
+    "precioMedia": 2000
   },
   {
     "img": "docena de carne",
     "rubro": "empanadas",
     "nombre": "pollo",
     "descripcion": "pollo salteado,cebollas,morrones,verdeo,condimentos",
-    "precioUnidad": 2500,
-    "precioMedia": 1500,
+    "precioUnidad": 3000,
+    "precioMedia": 2000,
     "__EMPTY_1": ""
   },
   {
@@ -117,8 +117,8 @@ const menu = [
     "rubro": "empanadas",
     "nombre": "fugazzeta",
     "descripcion": "cebollas salteadas,queso muzza",
-    "precioUnidad": 2500,
-    "precioMedia": 1500,
+    "precioUnidad": 3000,
+    "precioMedia": 2000,
     "__EMPTY_1": ""
   },
   {
@@ -126,8 +126,8 @@ const menu = [
     "rubro": "empanadas",
     "nombre": "capresse",
     "descripcion": "queso muzza,tomates en cubos,albahaca",
-    "precioUnidad": 2500,
-    "precioMedia": 1500,
+    "precioUnidad": 3000,
+    "precioMedia": 2000,
     "__EMPTY_1": ""
   },
   {
@@ -135,8 +135,8 @@ const menu = [
     "rubro": "empanadas",
     "nombre": "choclo",
     "descripcion": "queso muzza, maiz en grano",
-    "precioUnidad": 2500,
-    "precioMedia": 1500,
+    "precioUnidad": 3000,
+    "precioMedia": 2000,
     "__EMPTY_1": ""
   },
   {
@@ -144,32 +144,32 @@ const menu = [
     "rubro": "tartas y calzone",
     "nombre": "jamon y queso",
     "descripcion": "queso muzza, jamon cocido",
-    "precioUnidad": 2500,
-    "precioMedia": 2000
+    "precioUnidad": 3000,
+    "precioMedia": 2500
   },
   {
     "img": "tarta",
     "rubro": "tartas y calzone",
     "nombre": "capresse",
     "descripcion": "tomates cortado en cubos,queso muzza, albahaca",
-    "precioUnidad": 2300,
-    "precioMedia": 1800
+    "precioUnidad": 3000,
+    "precioMedia": 2500
   },
   {
     "img": "tartas",
     "rubro": "tartas y calzone",
     "nombre": "fugazzeta",
     "descripcion": "cebollas salteadas,queso muzza",
-    "precioUnidad": 2500,
-    "precioMedia": 2000
+    "precioUnidad": 3000,
+    "precioMedia": 2500
   },
   {
     "img": "tarta",
     "rubro": "tartas y calzone",
     "nombre": "napolitana",
     "descripcion": "tomates en rodajas,huevo hervido,oregano,queso muzza",
-    "precioUnidad": 2600,
-    "precioMedia": 2200
+    "precioUnidad": 3200,
+    "precioMedia": 2600
   },
   {
     "img": "tacos carne",
@@ -211,7 +211,7 @@ const menu = [
     "rubro": "porcion de papas",
     "nombre": "gratinada",
     "descripcion": "queso muzza,jamon salteado,verdeo fresco.",
-    "precioUnidad": 1400
+    "precioUnidad": 1500
   },
   {
     "img": "porcion de papa cheddar",
@@ -225,7 +225,7 @@ const menu = [
     "rubro": "porcion de papas",
     "nombre": "hot dog",
     "descripcion": "huevo a caballo,salchichas salteada en rodajas,verdeo fresco.",
-    "precioUnidad": 1800
+    "precioUnidad": 1900
   },
   {
     "img": "porcion de papa hot dog",
@@ -239,70 +239,70 @@ const menu = [
     "rubro": "hamburguesa clasicas",
     "nombre": "completa",
     "descripcion": "pan con sesamos,medallon de carne,huevo,jamon,tomates,mayonesa de la casa.",
-    "precioUnidad": 1000
+    "precioUnidad": 1200
   },
   {
     "img": "gratinada doble",
     "rubro": "hamburguesa clasicas",
     "nombre": "gratinada doble",
     "descripcion": "pan con sesamos,doblemedallon de carne,huevo,jamon,tomates,mayonesa de la casa,gratinado con verdeo fresco",
-    "precioUnidad": 1700
+    "precioUnidad": 2000
   },
   {
     "img": "super hambruguesa",
     "rubro": "hamburguesa clasicas",
     "nombre": "super doble",
     "descripcion": "pan con sesamos,doble medallon de carne,huevo morrones asados,mayonesa de la casa gratinado con jamon rallano",
-    "precioUnidad": 1700
+    "precioUnidad": 2000
   },
   {
     "img": "green onion",
     "rubro": "burgers home",
     "nombre": "green onion",
     "descripcion": "pan de papa, doble medallon de carne , cheddar,queso muzza,jamon, huevo ,salsa de verdeo",
-    "precioUnidad": 2200
+    "precioUnidad": 2400
   },
   {
     "img": "burguers american",
     "rubro": "burgers home",
     "nombre": "american",
     "descripcion": "pan de papa,doble medallon de carne, doble cheddar, panceta salteada,barbacoa,cebolla,mayonesa de la casa.",
-    "precioUnidad": 2400
+    "precioUnidad": 2600
   },
   {
     "img": "cheese",
     "rubro": "burgers home",
     "nombre": "cheese",
     "descripcion": "pan de papa, doble medallon de carne, doble queso cheddar, mayonesa de la casa",
-    "precioUnidad": 2200
+    "precioUnidad": 2600
   },
   {
     "img": "red pepper",
     "rubro": "burgers home",
     "nombre": "red pepper",
     "descripcion": "pan de papa , doble medallon de carne ,queso muzza,morrones asados,huevo,jamon,tomates,salsa de pimiento rojo(morron)",
-    "precioUnidad": 2200
+    "precioUnidad": 2600
   },
   {
     "img": "blue cheese",
     "rubro": "burgers home",
     "nombre": "blue cheeese",
     "descripcion": "pan de papa doble medallon de carne,queso,muzza, cebolla crispy,jamon salteado,tomates , salsa de queso azul",
-    "precioUnidad": 2300
+    "precioUnidad": 2600
   },
   {
     "img": "caramelizada",
     "rubro": "burgers home",
     "nombre": "caramelizada",
     "descripcion": "pan de papa,doble medallon de carne, doble queso muzza, cebolla caramelizada,barbacoa, jamon salteado ,toamtes, gratinado,mayonesa de la casa.",
-    "precioUnidad": 2400
+    "precioUnidad": 2700
   },
   {
     "img": "burger veggie",
     "rubro": "burgers home",
     "nombre": "veggie",
     "descripcion": "pan de papa , medallon raku,queso muzza,cheddar,cebolla y morrones salteados,tomates,huevo,salsa de remolacha.",
-    "precioUnidad": 2200
+    "precioUnidad": 2600
   },
   {
     "img": "lomo completo",
@@ -379,61 +379,61 @@ const menu = [
     "rubro": "milanesas",
     "nombre": "al plato",
     "descripcion": "milanesa de carne, papas rusticas",
-    "precioUnidad": 2000,
-    "precioMedia": 2700
+    "precioUnidad": 2300,
+    "precioMedia": 3000
   },
   {
     "img": "milanesa a caballo",
     "rubro": "milanesas",
     "nombre": "a caballo",
     "descripcion": "milanesa de carne,huevo a caballo,papas rusticas",
-    "precioUnidad": 2500,
-    "precioMedia": 3000
+    "precioUnidad": 2700,
+    "precioMedia": 3300
   },
   {
     "img": "napolitana milanesa",
     "rubro": "milanesas",
     "nombre": "napolitana",
     "descripcion": "milanesa de carne, salsa de la casa, tomates , queso muzza,papas rusticas.",
-    "precioUnidad": 3000,
-    "precioMedia": 3500
+    "precioUnidad": 3300,
+    "precioMedia": 3700
   },
   {
     "img": "pizzanesa morrones y cebolla",
     "rubro": "pizzanesas",
     "nombre": "morrones y cebolla",
     "descripcion": "milanesa de carne, morrones asados,cebolla salteadas,salsa de la casa, queso muzza,papas rusticas",
-    "precioUnidad": 2900,
-    "precioMedia": 3500
+    "precioUnidad": 3300,
+    "precioMedia": 3700
   },
   {
     "img": "pizzanesa cheddar",
     "rubro": "pizzanesas",
     "nombre": "bacon",
     "descripcion": "milanesa de carne, salsa de la casa,queso muzza , cheddar, panceta salteada , verdeo fresco, papas rusticas",
-    "precioUnidad": 3000,
-    "precioMedia": 3500
+    "precioUnidad": 3400,
+    "precioMedia": 3800
   },
   {
     "img": "sand de mila chico",
     "rubro": "sandwiches",
     "nombre": "completo",
     "descripcion": "pan alargado, milanesa de carne,huevo,muzza,jamon,tomates,mayonesa de la casa",
-    "precioUnidad": 2500
+    "precioUnidad": 2700
   },
   {
     "img": "tenaza gratinada 1",
     "rubro": "sandwiches",
     "nombre": "tenaza gratinada",
     "descripcion": "pan alargado 45cm aprox,milanesa de carne,huevo,muzza,jamon,tomates,gratinado,mayonesa de la casa",
-    "precioUnidad": 4000
+    "precioUnidad": 4300
   },
   {
     "img": "hamburpizza",
     "rubro": "hamburpizza",
     "nombre": "completa",
     "descripcion": "prepizza caseras, queso muzza, medallones de carne, tomates, huevo , jamon ,mayonesa de la casa, papas rusticas",
-    "precioUnidad": 3600,
-    "precioMedia": 2600
+    "precioUnidad": 3800,
+    "precioMedia": 2800
   }
 ]
