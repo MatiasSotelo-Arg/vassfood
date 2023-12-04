@@ -379,40 +379,40 @@ const menu = [
     "rubro": "milanesas",
     "nombre": "al plato",
     "descripcion": "milanesa de carne, papas rusticas",
-    "precioUnidad": 2300,
-    "precioMedia": 3000
+    "precioUnidad": 3000,
+    "precioMedia": 2300
   },
   {
     "img": "milanesa a caballo",
     "rubro": "milanesas",
     "nombre": "a caballo",
     "descripcion": "milanesa de carne,huevo a caballo,papas rusticas",
-    "precioUnidad": 2700,
-    "precioMedia": 3300
+    "precioUnidad": 3300,
+    "precioMedia": 2700
   },
   {
     "img": "napolitana milanesa",
     "rubro": "milanesas",
     "nombre": "napolitana",
     "descripcion": "milanesa de carne, salsa de la casa, tomates , queso muzza,papas rusticas.",
-    "precioUnidad": 3300,
-    "precioMedia": 3700
+    "precioUnidad": 3700,
+    "precioMedia": 3300
   },
   {
     "img": "pizzanesa morrones y cebolla",
     "rubro": "pizzanesas",
     "nombre": "morrones y cebolla",
     "descripcion": "milanesa de carne, morrones asados,cebolla salteadas,salsa de la casa, queso muzza,papas rusticas",
-    "precioUnidad": 3300,
-    "precioMedia": 3700
+    "precioUnidad": 3700,
+    "precioMedia": 3300
   },
   {
     "img": "pizzanesa cheddar",
     "rubro": "pizzanesas",
     "nombre": "bacon",
     "descripcion": "milanesa de carne, salsa de la casa,queso muzza , cheddar, panceta salteada , verdeo fresco, papas rusticas",
-    "precioUnidad": 3400,
-    "precioMedia": 3800
+    "precioUnidad": 3800,
+    "precioMedia": 3400
   },
   {
     "img": "sand de mila chico",
