@@ -422,14 +422,14 @@ const menu = [
     "rubro": "sandwiches",
     "nombre": "tenaza gratinada",
     "descripcion": "pan alargado 45cm aprox,milanesa de carne,huevo,muzza,jamon,tomates,gratinado,mayonesa de la casa",
-    "precioUnidad": 4800
+    "precioUnidad": 5000
   },
   {
     "img": "hamburpizza",
     "rubro": "hamburpizza",
     "nombre": "completa",
     "descripcion": "prepizza caseras, queso muzza, medallones de carne, tomates, huevo , jamon ,mayonesa de la casa, papas rusticas",
-    "precioUnidad": 4000,
+    "precioUnidad": 4500,
     "precioMedia": 3000
   }
 ]
